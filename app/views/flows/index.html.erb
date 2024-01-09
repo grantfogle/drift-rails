@@ -3,11 +3,7 @@
 <ul>
     <% @flows.each do |flow| %>
         <li>
-            <a href="/flows/<%= flow.id %>">
-                <%= flow.name %>
-                <%= flow.location %>
-                <%= flow.flow %> cfs
-            </a>
+            <%= link_to flow.name, flow %>
         </li>
     <% end %>
 </ul>
