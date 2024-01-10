@@ -4,3 +4,11 @@ Rails.application.routes.draw do
   
   resources :flows
 end
+
+
+# https://guides.rubyonrails.org/v6.1/getting_started.html#creating-a-new-article
+# authentication UserModel
+# how to get live flows from website... scraping and getting once per day
+## allow users to save favorites
+## aller users to search by location
+## currently at updating an article

@@ -20,4 +20,10 @@ class FlowsController < ApplicationController
       render :new
     end
   end
+
+  private
+
+  def flows_params
+    params.require(:flow).permit(:name, :location, :flow)
+  end
 end
