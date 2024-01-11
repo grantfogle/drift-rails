@@ -21,6 +21,19 @@ class FlowsController < ApplicationController
     end
   end
 
+  def edit
+    @flow = Flow.find(params[:id])
+  end
+
+  def update
+    @flow = Flow.find(params[:id])
+    if @flow.update(flows_params)
+      redirect_to @flow
+    else
+      render :edit
+    end
+  end
+
   private
 
   def flows_params
