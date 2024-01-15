@@ -34,6 +34,13 @@ class FlowsController < ApplicationController
     end
   end
 
+  def destroy
+    @flow = Flow.find(params[:id])
+    @flow.destroy
+    
+    redirect_to root_path
+  end
+
   private
 
   def flows_params

@@ -3,4 +3,7 @@
 <p><%= @flow.flow %> cfs</p>
 <ul>
     <li><%= link_to "Edit", edit_flow_path(@flow) %></li>
+    <li><%= link_to "Destroy", flow_path(@flow),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %></li>
 </ul>
