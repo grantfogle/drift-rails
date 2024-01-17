@@ -44,6 +44,6 @@ class FlowsController < ApplicationController
   private
 
   def flows_params
-    params.require(:flow).permit(:name, :location, :flow)
+    params.require(:flow).permit(:name, :location, :flow, :status)
   end
 end

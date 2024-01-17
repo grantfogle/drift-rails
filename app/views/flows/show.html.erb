@@ -9,36 +9,7 @@
 </ul>
 
 <h2>Reports</h2>
-<% @flow.reports.each do |report| %>
-    <p>
-        <strong>Author:</strong>
-        <%= report.author %>
-    </p>
-    <p>
-        <strong>Report:</strong>
-        <%= report.body %>
-    </p>
-    <p>
-        <strong>Rating:</strong>
-        <%= report.rating %>
-    </p>
-<% end %>
+<%= render @flow.reports %>
 
 <h2>Add a report:</h2>
-<%= form_with model: [@flow, @flow.reports.build ] do |form| %>
-    <p>
-        <%= form.label :author %><br>
-        <%= form.text_field :author %>
-    </p>
-    <p>
-        <%= form.label :body %><br>
-        <%= form.text_area :body %>
-    </p>
-    <p>
-        <%= form.label :rating %><br>
-        <%= form.number_field :rating %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
-<% end %>
+<%= render "reports/form" %>

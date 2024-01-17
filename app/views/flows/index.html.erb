@@ -1,10 +1,14 @@
 <h1>Stream Flows</h1>
 
+Our page has <%= Flow.public_count %> public streams and counting!
+
 <ul>
     <% @flows.each do |flow| %>
-        <li>
-            <%= link_to flow.name, flow %>
-        </li>
+        <% unless flow.archived? %>
+            <li>
+                <%= link_to flow.name, flow %>
+            </li>
+        <% end %>
     <% end %>
 </ul>
 

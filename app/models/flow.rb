@@ -1,4 +1,5 @@
 class Flow < ApplicationRecord
+    include Visible
     has_many :reports
     
     validates :name, presence: true

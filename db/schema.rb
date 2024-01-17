@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_15_223556) do
+ActiveRecord::Schema.define(version: 2024_01_17_041059) do
 
   create_table "flows", force: :cascade do |t|
     t.text "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2024_01_15_223556) do
     t.integer "flow"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2024_01_15_223556) do
     t.integer "flow_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
     t.index ["flow_id"], name: "index_reports_on_flow_id"
   end
 
