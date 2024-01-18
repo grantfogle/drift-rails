@@ -6,6 +6,14 @@ class ReportsController < ApplicationController
     redirect_to flow_path(@flow)
   end
 
+  def destroy
+    @flow = Flow.find(params[:flow_id])
+    @report = @flow.reports.find(params[:id])
+    @report.destroy
+    
+    redirect_to flow_path(@flow)
+  end
+
   private
     def report_params
       params.require(:report).permit(:author, :body, :rating, :status)

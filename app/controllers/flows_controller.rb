@@ -12,7 +12,7 @@ class FlowsController < ApplicationController
   end
 
   def create
-    @flow = Flow.new(name: params[:flow][:name], location: params[:flow][:location], flow: params[:flow][:flow])
+    @flow = Flow.new(name: params[:flow][:name], location: params[:flow][:location], flow: params[:flow][:flow], status: params[:flow][:status])
 
     if @flow.save
       redirect_to @flow
