@@ -1,4 +1,7 @@
 class FlowsController < ApplicationController
+
+  http_basic_authenticate_with name: 'gjf', password: 'secret', except: [:index, :show]
+  
   def index
     @flows = Flow.all
   end
