@@ -2,6 +2,21 @@
 
 Our page has <%= Flow.public_count %> public streams and counting!
 
+<table>
+    <thead>
+        <td>River</td>
+        <td>Location</td>
+        <td>Flow</td>
+    </thead>
+    <% @flows.each do |flow| %>
+        <tr>
+            <td><%= flow.name %></td>
+            <td><%= flow.location %></td>
+            <td><%= flow.flow %></td>
+        </tr>
+    <% end %>
+</table>
+
 <ul>
     <% @flows.each do |flow| %>
         <% unless flow.archived? %>
