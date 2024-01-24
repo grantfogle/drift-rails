@@ -1,15 +1,16 @@
-<h1><%= @flow.name %></h1>
-<p><%= @flow.location %></p>
-<p><%= @flow.flow %> cfs</p>
-<ul>
-    <li><%= link_to "Edit", edit_flow_path(@flow) %></li>
-    <li><%= link_to "Destroy", flow_path(@flow),
-    method: :delete,
-    data: { confirm: "Are you sure?" } %></li>
-</ul>
 
-<h2>Reports</h2>
-<%= render @flow.reports %>
+    <h1><%= @flow.name %></h1>
+    <p><%= @flow.location %></p>
+    <p><%= @flow.flow %> cfs</p>
+    <ul>
+        <li><%= link_to "Edit", edit_flow_path(@flow) %></li>
+        <li><%= link_to "Destroy", flow_path(@flow),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %></li>
+    </ul>
 
-<h2>Add a report:</h2>
-<%= render "reports/form" %>
+    <h2>Reports</h2>
+    <%= render @flow.reports %>
+
+    <h2>Add a report:</h2>
+    <%= render "reports/form" %>
