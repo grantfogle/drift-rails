@@ -1,0 +1,32 @@
+<div class="container flex flex-col">
+<h1>Sign up</h1>
+
+<%= form_with model: @user, url: sign_up_path do |form| %>
+    <% if @user.errors.any? %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+            <% @user.errors.full_messages.each do |message| %>
+                <div class="text-red"><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="border-gray-300 px-2 py-2 rounded-lg shadow-sm">
+    <%= form.label :email %>
+    <%= form.email_field :email, placeholder: "steve@apple.com" %>
+    </div>
+
+    <div class="border-gray-300 px-2 py-2">
+    <%= form.label :password %>
+    <%= form.password_field :password, placeholder: "password" %>
+    </div>
+
+    <div class="border-gray-300 px-2 py-2">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, placeholder: "password" %>
+    </div>
+
+    <div class="mx-2 my-2">
+        <%= form.submit "Sign up", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>    
+    </div>
+<% end %>
+
+</div>
