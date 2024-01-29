@@ -1,5 +1,6 @@
-<div class="container flex flex-col">
-<h1>Sign up</h1>
+<div class="h-full w-full rounded container flex flex-col bg-white px-5 py-5">
+    <h1 class="text-center">Welcome to Drift</h1>
+    <h2 class="text-center">Sign up</h2>
 
 <%= form_with model: @user, url: sign_up_path do |form| %>
     <% if @user.errors.any? %>
@@ -9,6 +10,7 @@
             <% end %>
         </div>
     <% end %>
+    <section class="border border-gray-500 container flex flex-col shadow-sm rounded">
     <div class="border-gray-300 px-2 py-2 rounded-lg shadow-sm">
     <%= form.label :email %>
     <%= form.email_field :email, placeholder: "steve@apple.com" %>
@@ -27,6 +29,7 @@
     <div class="mx-2 my-2">
         <%= form.submit "Sign up", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>    
     </div>
+    </section>
 <% end %>
 
 </div>
