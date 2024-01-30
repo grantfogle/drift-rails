@@ -3,9 +3,13 @@
 
 <% if @user %>
     Logged in as: <%= @user.email %>
+
+
+    <%= link_to "Log out", logout_path, method: :delete %>
+    <%= button_to "Log out", logout_path, method: :delete, class: "w-64 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 <% end %>
 
-Our page has <%= Flow.public_count %> public streams and counting!
+<h4>Our page has <%= Flow.public_count %> public streams and counting!</h4>
 
 <table>
     <thead>
