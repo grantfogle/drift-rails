@@ -1,4 +1,4 @@
-<div class="h-full w-full rounded-xl container flex flex-col bg-white px-5 py-5">
+<div class="h-full rounded-xl container flex flex-col bg-white px-6 py-6">
     <h1 class="text-center text-blue-500 mb-3">Welcome to Drift</h1>
     <h2 class="text-center text-gray-600 font-medium m-0 mb-3">Find your next place to fish</h2>
     <h3 class="text-center underline">Sign up</h3>
@@ -14,17 +14,17 @@
     <section class="container flex flex-col rounded px-4">
         <div class="border-gray-300 px-2 py-2 flex flex-col">
             <%= form.label :email %>
-            <%= form.email_field :email, placeholder: "steve@apple.com" %>
+            <%= form.email_field :email, placeholder: "steve@apple.com", class: "rounded-md bg-gray-100" %>
         </div>
 
         <div class="border-gray-300 px-2 py-2 flex flex-col">
             <%= form.label :password %>
-            <%= form.password_field :password, placeholder: "password" %>
+            <%= form.password_field :password, placeholder: "password", class: "rounded-md bg-gray-100" %>
         </div>
 
         <div class="border-gray-300 px-2 py-2 flex flex-col">
             <%= form.label :password_confirmation, "Confirm Password" %>
-            <%= form.password_field :password_confirmation, placeholder: "password" %>
+            <%= form.password_field :password_confirmation, placeholder: "password", class: "rounded-md bg-gray-100" %>
         </div>
 
         <div class="mx-2 my-2 text-center">
