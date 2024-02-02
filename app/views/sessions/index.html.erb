@@ -1,1 +1,20 @@
 <h1>Here is the login page</h1>
+
+<%= form_with url: sign_in_path, method: :post do |form| %>
+    <div class="container flex flex-col rounded px-4">
+        <div class="border-gray-300 px-2 py-2 flex flex-col">
+            <%= form.label :email %>
+            <%= form.email_field :email, placeholder: "steve@apple.com", class: "rounded-md bg-gray-100" %>
+        </div>
+
+        <div class="border-gray-300 px-2 py-2 flex flex-col">
+            <%= form.label :password %>
+            <%= form.password_field :password, placeholder: "password", class: "rounded-md bg-gray-100" %>
+        </div>
+
+        <div class="mx-2 my-2 text-center">
+            <%= form.submit "Sign in", class: "w-64 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>    
+        </div>
+    </div>
+
+<% end %>
