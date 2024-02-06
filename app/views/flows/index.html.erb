@@ -9,16 +9,16 @@
     <%= button_to "Log out", logout_path, method: :delete, class: "w-64 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 <% end %>
 
-<h4>Our page has <%= Flow.public_count %> public streams and counting!</h4>
+<h2><%= Flow.public_count %> public streams and counting!</h2>
 
-<table class="table-auto">
-    <thead>
+<table class="table-auto w-full">
+    <thead class="bg-gray-50 border-b-2 border-gray-200">
         <td>River</td>
         <td>Location</td>
         <td>Flow</td>
     </thead>
     <% @flows.each do |flow| %>
-        <tr>
+        <tr class="odd:bg-white even:bg-slate-50">
             <td><%= flow.name %></td>
             <td><%= flow.location %></td>
             <td><%= flow.flow %></td>
