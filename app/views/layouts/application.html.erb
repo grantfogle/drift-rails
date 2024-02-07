@@ -11,8 +11,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="prose mx-auto bg-blue-300">
-    <main class="container mx-auto px-5 mt-20">
+  <%= render 'layouts/header' %>
+  <body class="mx-auto">
+    <main class="prose container mx-auto px-5 mt-20 bg-blue-300">
       <%= yield %>
     </main>
   </body>
