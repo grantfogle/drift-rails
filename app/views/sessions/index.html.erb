@@ -1,20 +1,27 @@
-<h1>Here is the login page</h1>
 
-<%= form_with url: sign_in_path, method: :post do |form| %>
-    <div class="container flex flex-col rounded px-4">
-        <div class="border-gray-300 px-2 py-2 flex flex-col">
-            <%= form.label :email %>
-            <%= form.email_field :email, placeholder: "steve@apple.com", class: "rounded-md bg-gray-100" %>
+<section class="h-full rounded-xl container flex flex-col bg-white px-6 py-6 mx-auto prose">
+    <h1 class="text-center text-blue-500 mb-3">Welcome to Drift</h1>
+    <h2 class="text-center text-gray-600 font-medium m-0 mb-3">Find your next place to fish</h2>
+
+
+    <%= form_with url: sign_in_path, method: :post do |form| %>
+        <div class="container flex flex-col rounded px-4">
+            <div class="border-gray-300 px-2 py-2 flex flex-col">
+                <%= form.label :email %>
+                <%= form.email_field :email, placeholder: "steve@apple.com", class: "rounded-md bg-gray-100" %>
+            </div>
+
+            <div class="border-gray-300 px-2 py-2 flex flex-col">
+                <%= form.label :password %>
+                <%= form.password_field :password, placeholder: "password", class: "rounded-md bg-gray-100" %>
+            </div>
+
+            <div class="mx-2 my-2 text-center">
+                <%= form.submit "Sign in", class: "w-64 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>    
+            </div>
+            <a class="text-center no-underline text-blue-500 hover:text-blue-700" href="/sign_up">Sign Up</a>
         </div>
 
-        <div class="border-gray-300 px-2 py-2 flex flex-col">
-            <%= form.label :password %>
-            <%= form.password_field :password, placeholder: "password", class: "rounded-md bg-gray-100" %>
-        </div>
+    <% end %>
 
-        <div class="mx-2 my-2 text-center">
-            <%= form.submit "Sign in", class: "w-64 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>    
-        </div>
-    </div>
-
-<% end %>
+</section>
