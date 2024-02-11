@@ -1,29 +1,29 @@
-<div class="container mx-auto flex flex-col prose">
-<h1>Stream Flows</h1>
+<section class="container mx-auto flex flex-col prose">
+    <h1>Stream Flows</h1>
 
-<% if Current.user %>
-    Hello, <%= @user.email %>
-<% end %>
-
-<h2><%= Flow.public_count %> public streams and counting!</h2>
-
-<table class="table-auto w-full">
-    <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px]">
-        <td class="px-4">River</td>
-        <td class="px-4">Location</td>
-        <td class="px-4">Flow</td>
-    </thead>
-    <% @flows.each do |flow| %>
-        <% unless flow.archived? %>
-            <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
-                <td class="px-4 align-middle"><%= link_to flow.name, flow %></td>
-                <td class="px-4 align-middle"><%= flow.location %></td>
-                <td class="px-4 align-middle"><%= flow.flow %></td>
-            </tr>
-        <% end %>
+    <% if Current.user %>
+        Hello, <%= @user.email %>
     <% end %>
-</table>
-<hr>
 
-<%= link_to "New Stream Flow", new_flow_path %>
-</div>
+    <h2><%= Flow.public_count %> public streams and counting!</h2>
+
+    <table class="table-auto w-full">
+        <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px] font-bold">
+            <td class="px-4">River</td>
+            <td class="px-4">Location</td>
+            <td class="px-4">Flow</td>
+        </thead>
+        <% @flows.each do |flow| %>
+            <% unless flow.archived? %>
+                <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
+                    <td class="px-4 align-middle"><%= link_to flow.name, flow, class: "text-blue-600 no-underline hover:underline" %></td>
+                    <td class="px-4 align-middle"><%= flow.location %></td>
+                    <td class="px-4 align-middle"><%= flow.flow %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </table>
+    <hr>
+
+    <%= link_to "New Stream Flow", new_flow_path %>
+</section>
