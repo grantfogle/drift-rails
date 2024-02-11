@@ -7,7 +7,7 @@
             <ul class="flex flex-row">
                 <% if Current.user %>
                     <li>
-                        <%= link_to "Log out", logout_path, method: :delete, class: "px-2 hover:bg-orange-400 rounded border border-transparent" %>
+                        <%= link_to "Log out", logout_path, method: :delete, class: "px-2 py-2 hover:bg-orange-400 rounded border border-transparent" %>
                     </li>
                 <% else %>
                     <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="/sign_in">Log in</a></li>
