@@ -1,13 +1,14 @@
-<section class="container mx-auto flex flex-col prose">
-    <h1>Stream Flows</h1>
+<section class="container mx-auto flex flex-col">
 
     <% if Current.user %>
-        Hello, <%= @user.email %>
+        <p class="text-lg mb-3">Hello, <%= @user.email %></p>
     <% end %>
 
-    <h2><%= Flow.public_count %> public streams and counting!</h2>
+    <h1 class="text-4xl mb-3">Stream Flows</h1>
 
-    <table class="table-auto w-full">
+    <h2 class="text-lg mb-3"><%= Flow.public_count %> public streams and counting!</h2>
+
+    <table class="table-auto">
         <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px] font-bold">
             <td class="px-4">River</td>
             <td class="px-4">Location</td>
