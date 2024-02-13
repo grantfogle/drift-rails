@@ -10,8 +10,9 @@
 
     <table class="table-auto">
         <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px] font-bold">
-            <td class="px-4">River</td>
+            <td class="px-4">Name</td>
             <td class="px-4">Location</td>
+            <td class="px-4">State</td>
             <td class="px-4">Flow</td>
         </thead>
         <% @flows.each do |flow| %>
@@ -19,12 +20,13 @@
                 <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
                     <td class="px-4 align-middle"><%= link_to flow.name, flow, class: "text-blue-600 no-underline hover:underline" %></td>
                     <td class="px-4 align-middle"><%= flow.location %></td>
+                    <td class="px-4 align-middle"><%= flow.state %></td>
                     <td class="px-4 align-middle"><%= flow.flow %></td>
                 </tr>
             <% end %>
         <% end %>
     </table>
     <hr>
+    <%= link_to "Add Stream Flow", new_flow_path, class: "mt-[40px] w-[200px] text-center bg-blue-500 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded" %>
 
-    <%= link_to "New Stream Flow", new_flow_path %>
 </section>
