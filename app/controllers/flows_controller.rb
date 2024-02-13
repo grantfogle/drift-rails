@@ -19,7 +19,8 @@ class FlowsController < ApplicationController
   end
 
   def create
-    @flow = Flow.new(name: params[:flow][:name], location: params[:flow][:location], flow: params[:flow][:flow], status: params[:flow][:status])
+    # @flow = Flow.new(name: params[:flow][:name], location: params[:flow][:location], state: params[:flow][:state], flow: params[:flow][:flow], status: params[:flow][:status], usgs_id: params[:flow][:usgs_id])
+    @flow = Flow.new(flows_params)
 
     if @flow.save
       redirect_to @flow
@@ -51,6 +52,6 @@ class FlowsController < ApplicationController
   private
 
   def flows_params
-    params.require(:flow).permit(:name, :location, :flow, :status)
+    params.require(:flow).permit(:name, :stream, :location, :flow, :status, :state, :usgs_id)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_25_232933) do
+ActiveRecord::Schema.define(version: 2024_02_13_040932) do
 
   create_table "flows", force: :cascade do |t|
     t.text "name"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2024_01_25_232933) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
+    t.string "stream"
+    t.integer "usgs_id"
+    t.string "state"
   end
 
   create_table "reports", force: :cascade do |t|

@@ -8,9 +8,25 @@
     </div>
 
     <div>
+        <%= form.label :stream %><br>
+        <%= form.text_field :stream %>
+        <% flow.errors.full_messages_for(:stream).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
         <%= form.label :location %><br>
         <%= form.text_field :location %>
         <% flow.errors.full_messages_for(:location).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :state %><br>
+        <%= form.text_field :state %>
+        <% flow.errors.full_messages_for(:state).each do |message| %>
             <div><%= message %></div>
         <% end %>
     </div>
@@ -24,8 +40,16 @@
     </div>
 
     <div>
-            <%= form.label :status %><br>
-            <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+        <%= form.label :usgs_id %><br>
+        <%= form.number_field :usgs_id %>
+        <% flow.errors.full_messages_for(:usgs_id).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :status %><br>
+        <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
     </div>
 
     <div>
