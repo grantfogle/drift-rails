@@ -9,8 +9,8 @@
     <h2 class="text-lg mb-3"><%= Flow.public_count %> public streams and counting!</h2>
 
     <%= form_with(url: flows_path, method: "get") do |form| %>
-        <%= form.text_field :query, placeholder: "Search by stream name", class: "input-class" %>
-        <%= form.submit "Search" %>
+        <%= form.label :query, "Search by name:" %>
+        <%= form.text_field :query, value: params[:query], data: { controller: "flow-search", action: "input->flow-search#search" } %>
     <% end %>
 
     <table class="table-auto">
@@ -20,7 +20,10 @@
             <td class="px-4">State</td>
             <td class="px-4">Flow</td>
         </thead>
+
         <%= render "flows", flows: @flows %>
+
+
         <!--
         <% @flows.each do |flow| %>
             <% unless flow.archived? %>

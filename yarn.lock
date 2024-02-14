@@ -1862,7 +1862,7 @@ bytes@3.1.2:
   resolved "https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz"
   integrity sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==
 
-"cable_ready@>= 4.5.0":
+"cable_ready@>= 4.5.0", cable_ready@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-5.0.3.tgz#99e621005246d846b4ee5fb34cbfb773c88a019a"
   integrity sha512-0WcXRSwNw6p4SQmcAPk/APkqgfN3MlLCg6N6SUV+xJECWcdPPRIF8bQ7CLZBrch7Q8Fv7NZiokJpQShuSv+yNw==
