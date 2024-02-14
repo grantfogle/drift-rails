@@ -11,12 +11,12 @@
         <%= form.label :rating %><br>
         <%= form.number_field :rating %>
     </p>
-    <p>
+    <p class="mb-4">
         <%= form.label :status %><br>
         <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
     </p>
 
-    <p>
-        <%= form.submit %>
-    </p>
+    <div>
+        <%= form.submit class: "bg-blue-500 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded" %>
+    </div>
 <% end %>
