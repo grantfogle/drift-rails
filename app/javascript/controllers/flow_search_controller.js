@@ -4,9 +4,6 @@ import ApplicationController from './application_controller'
  * Learn more at: https://docs.stimulusreflex.com
  */
 export default class extends ApplicationController {
-  search() {
-    this.stimulate('FlowSearch#search')
-  }
   /*
    * Regular Stimulus lifecycle methods
    * Learn more at: https://stimulusjs.org/reference/lifecycle-callbacks
@@ -22,6 +19,10 @@ export default class extends ApplicationController {
   connect () {
     super.connect()
     // add your code here, if applicable
+  }
+
+  search() {
+    this.stimulate('FlowSearch#search')
   }
 
   /* Reflex specific lifecycle methods.

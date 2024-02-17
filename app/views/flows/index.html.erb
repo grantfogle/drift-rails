@@ -1,16 +1,12 @@
 <section class="container mx-auto flex flex-col">
 
-    <% if Current.user %>
-        <p class="text-lg mb-3">Hello, <%= @user.email %></p>
-    <% end %>
-
     <h1 class="text-4xl mb-3">Stream Flows</h1>
 
     <h2 class="text-lg mb-3"><%= Flow.public_count %> public streams and counting!</h2>
 
-    <%= form_with(url: flows_path, method: "get") do |form| %>
+    <%= form_with(url: flows_path, method: :get) do |form| %>
         <%= form.label :query, "Search by name:" %>
-        <%= form.text_field :query, value: params[:query], data: { controller: "flow-search", action: "input->flow-search#search" } %>
+        <%= form.text_field :query, value: params[:query], data: { controller: "flow-search", action: "input->flow-search#search" }, class: "rounded-md" %>
     <% end %>
 
     <table class="table-auto">
