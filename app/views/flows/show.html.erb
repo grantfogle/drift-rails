@@ -1,18 +1,23 @@
-
-    <h1 class="text-2xl"><%= @flow.name %></h1>
-    <p class="text-lg"><%= @flow.location %>, <%= @flow.state %></p>
-    <p class="text-lg mb-4"><%= @flow.flow %> cfs</p>
+<div class="flex space-x-8">
+    <div>
+        <h1 class="text-2xl"><%= @flow.name %></h1>
+        <p class="text-lg"><%= @flow.location %>, <%= @flow.state %></p>
+        <p class="text-lg mb-4"><%= @flow.flow %> cfs</p>
+    </div>
     <ul class="flex space-x-2 mb-4">
-        <li class="bg-orange-600 hover:bg-yellow-500 rounded-md">
-            <%= link_to "Edit", edit_flow_path(@flow), class: "block text-white px-4 py-2" %>
+        <li class="h-[32px]">
+            <%= link_to "Edit",
+                edit_flow_path(@flow),
+                class: "block text-white px-4 py-2 bg-orange-600 hover:bg-yellow-500 rounded-md" %>
         </li>
-        <li class="rounded-md">
+        <li class="h-[32px] rounded-md">
             <%= link_to "Destroy", flow_path(@flow),
               method: :delete,
               data: { confirm: "Are you sure?" },
               class: "block text-white px-4 py-2 bg-red-600 hover:bg-yellow-500 rounded-md" %>
         </li>
     </ul>
+</div>
 
     <hr>
 
