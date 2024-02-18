@@ -8,6 +8,15 @@
 
     <h2 class="text-lg mb-3"><%= Flow.public_count %> public streams and counting!</h2>
 
+    <%= form_with(url: flows_path, method: :get) do |form| %>
+        <%= form.text_field :query, 
+            placeholder: "Search a stream",
+            value: params[:query], 
+            data: {controller: "flow-search",
+            action: "input->flow-search#search"},
+            class: "w-[400px] border-2 border-gray-200 rounded p-2" %>
+    <% end %>
+
     <table class="table-auto">
         <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px] font-bold">
             <td class="px-4">Name</td>
@@ -15,18 +24,7 @@
             <td class="px-4">State</td>
             <td class="px-4">Flow</td>
         </thead>
-        <tbody>
-            <% @flows.each do |flow| %>
-                <% unless flow.archived? %>
-                    <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
-                        <td class="px-4 align-middle"><%= link_to flow.name, flow, class: "text-blue-600 no-underline hover:underline" %></td>
-                        <td class="px-4 align-middle"><%= flow.location %></td>
-                        <td class="px-4 align-middle"><%= flow.state %></td>
-                        <td class="px-4 align-middle"><%= flow.flow %></td>
-                    </tr>
-                <% end %>
-            <% end %>
-        </tbody>
+        <%= render "flows", flows: @flows %>
     </table>
     <hr>
     <%= link_to "Add Stream Flow", new_flow_path, class: "mt-[40px] w-[200px] text-center bg-blue-500 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded" %>

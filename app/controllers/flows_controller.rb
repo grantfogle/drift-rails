@@ -3,7 +3,9 @@ class FlowsController < ApplicationController
   http_basic_authenticate_with name: 'gjf', password: 'secret', except: [:index, :show]
   
   def index
-    @flows = Flow.all
+    @flows ||= Flow.all
+    # @flows = Flow.where("name LIKE ?", "%#{params[:query]}%")
+    # @flows = Flow.all
 
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
