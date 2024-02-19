@@ -16,22 +16,7 @@
             <td class="px-4">State</td>
             <td class="px-4">Flow</td>
         </thead>
-        <tbody>
-            <% @flows.each do |flow| %>
-                <% unless flow.archived? %>
-                    <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
-                        <td class="px-4 text-center text-yellow-500">
-                        <%= button_to 'Favorite', flow_favorites_path(flow), method: :post %>
-                        <i class="fa-regular fa-star fa-xl"></i>
-                        </td>
-                        <td class="px-4 align-middle"><%= link_to flow.name, flow, class: "text-blue-600 no-underline hover:underline" %></td>
-                        <td class="px-4 align-middle"><%= flow.location %></td>
-                        <td class="px-4 align-middle"><%= flow.state %></td>
-                        <td class="px-4 align-middle"><%= flow.flow %></td>
-                    </tr>
-                <% end %>
-            <% end %>
-        </tbody>
+        <%= render partial: "flows", flows: @flows %>
     </table>
     <hr>
     <%= link_to "Add Stream Flow", new_flow_path, class: "mt-[40px] w-[200px] text-center bg-blue-500 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded" %>

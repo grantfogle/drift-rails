@@ -4,8 +4,13 @@
             <a href="#"><span><i class="fa-solid fa-water"></i> DRIFT</span></a>
         </div> 
         <div>
-            <ul class="flex flex-row">
+            <ul class="flex flex-row items-center">
                 <% if Current.user %>
+                    <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="#">Favorites</a></li>
+                    <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="#">Maps</a></li>
+                    <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="#">Explore</a></li>
+                    <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="#">Daily Reports</a></li>
+                    <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="#">News</a></li>
                     <li>
                         <%= link_to "Log out", logout_path, method: :delete, class: "px-2 py-2 hover:bg-orange-400 rounded border border-transparent" %>
                     </li>
