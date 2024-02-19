@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   
   resources :flows do
     resources :reports
+    resources :favorites, only: [:create, :destroy]
   end
 end
 
