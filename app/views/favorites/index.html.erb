@@ -1,4 +1,4 @@
-<article class="mb-[120px]">
+<article class="mb-[180px] container mx-auto flex flex-col">
     <h1 class="text-3xl mb-4">My Favorite Flows</h1>
 
     <% if @flows.count > 0 %>
@@ -13,6 +13,6 @@
         <%= render partial: 'flows/flows', flows: @flows %>
     </table>
     <% else %>
-    <p>You have no favorite flows.</p>
+        <p>You have no favorite flows.</p>
     <% end %>
 </article>

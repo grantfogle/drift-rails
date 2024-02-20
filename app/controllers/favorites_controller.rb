@@ -6,10 +6,6 @@ class FavoritesController < ApplicationController
         if Current.user
             @flows = Current.user.favorite_flows # This retrieves all flows associated with the user through favorites.
             Rails.logger.debug "Favorite Flows Count: #{Current.user.favorite_flows.count}"
-        else
-            redirect_to flows_path
-            # Optionally handle the case where there is no user logged in,
-            # though your `require_user` before_action may already cover the need to redirect.
         end
     end
 
@@ -38,6 +34,6 @@ class FavoritesController < ApplicationController
     private
 
     def require_user
-        redirect_to login_path, alert: 'You must be logged in to perform this action.' unless Current.user
+        redirect_to sign_in_path, alert: 'You must be logged in to perform this action.' unless Current.user
     end
 end

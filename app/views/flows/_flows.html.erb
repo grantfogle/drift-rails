@@ -3,8 +3,15 @@
         <% unless flow.archived? %>
             <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
                 <td class="px-4 text-center text-yellow-500">
-                    <%= button_to 'Favorite', flow_favorites_path(flow), method: :post %>
-                    <i class="fa-regular fa-star fa-xl"></i>
+                    <!-- 
+                        If user is logged in and the flow is a favorite, display the remove favorite button.
+                        Else display favorite option
+                        Can i rerender page on favorite/unfavorite?
+                    -->
+                        
+                    <%= button_to flow_favorites_path(flow), method: :post, class: "your-button-class", title: "Favorite" do %>
+                        <i class="fa-regular fa-star fa-xl"></i>
+                    <% end %>
                 </td>
                 <td class="px-4 align-middle"><%= link_to flow.name, flow, class: "text-blue-600 no-underline hover:underline" %></td>
                 <td class="px-4 align-middle"><%= flow.location %></td>
