@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post "sign_in", to: "sessions#create"
   
   delete "logout", to: "sessions#destroy"
+
+  resources :favorites, only: [:index]
   
   resources :flows do
     resources :reports

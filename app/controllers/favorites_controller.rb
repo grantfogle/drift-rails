@@ -1,6 +1,18 @@
 class FavoritesController < ApplicationController
     before_action :require_user
 
+    def index
+        #def index
+        if Current.user
+            @flows = Current.user.favorite_flows # This retrieves all flows associated with the user through favorites.
+            Rails.logger.debug "Favorite Flows Count: #{Current.user.favorite_flows.count}"
+        else
+            redirect_to flows_path
+            # Optionally handle the case where there is no user logged in,
+            # though your `require_user` before_action may already cover the need to redirect.
+        end
+    end
+
     def create
         flow = Flow.find(params[:flow_id])
         favorite = Current.user.favorites.build(flow: flow)
