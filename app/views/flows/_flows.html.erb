@@ -8,9 +8,14 @@
                         Else display favorite option
                         Can i rerender page on favorite/unfavorite?
                     -->
-                        
-                    <%= button_to flow_favorites_path(flow), method: :post, class: "your-button-class", title: "Favorite" do %>
-                        <i class="fa-regular fa-star fa-xl"></i>
+                    <% if Current.user.favorite_flows.include?(flow) %>
+                        <%= button_to flow_favorites_path(flow), method: :delete, class: "your-button-class", title: "Unfavorite" do %>
+                            <i class="fas fa-star fa-xl"></i>
+                        <% end %>
+                    <% else %>    
+                        <%= button_to flow_favorites_path(flow), method: :post, class: "your-button-class", title: "Favorite" do %>
+                            <i class="fa-regular fa-star fa-xl"></i>
+                        <% end %>
                     <% end %>
                 </td>
                 <td class="px-4 align-middle"><%= link_to flow.name, flow, class: "text-blue-600 no-underline hover:underline" %></td>
