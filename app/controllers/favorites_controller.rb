@@ -11,15 +11,21 @@ class FavoritesController < ApplicationController
 
     def create
         flow = Flow.find(params[:flow_id])
-        favorite = Current.user.favorites.build(flow: flow)
-        # check if the flow is already a favorite
-    
-        if favorite.save
-          redirect_to flow, notice: 'Added to favorites.'
+
+        existing_favorite = Current.user.favorites.find_by(flow_id: flow.id, user_id: Current.user.id)
+
+        if existing_favorite
+          redirect_to flow, alert: 'Already a favorite.'
         else
-          redirect_to flow, alert: 'Unable to add to favorites.'
+          favorite = Current.user.favorites.build(flow: flow)
+          # check if the flow is already a favorite  
+          if favorite.save
+            redirect_to flow, notice: 'Added to favorites.'
+          else
+            redirect_to flow, alert: 'Unable to add to favorites.'
+          end
         end
-      end
+    end
     
       def destroy
         flow = Flow.find(params[:flow_id])
