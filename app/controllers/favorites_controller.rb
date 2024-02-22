@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
     def create
         flow = Flow.find(params[:flow_id])
 
-        existing_favorite = Current.user.favorites.find_by(flow_id: flow.id, user_id: Current.user.id)
+        existing_favorite = Favorite.find_by(flow_id: flow.id, user_id: Current.user.id)
 
         if existing_favorite
           redirect_to flow, alert: 'Already a favorite.'
@@ -29,7 +29,9 @@ class FavoritesController < ApplicationController
     
       def destroy
         flow = Flow.find(params[:flow_id])
-        favorite = Current.user.favorites.find_by(flow_id: flow.id, user_id: Current.user.id)
+        # can i get favorite id?
+        
+        favorite = Favorite.find_by(flow_id: flow.id, user_id: Current.user.id)
         
         if favorite&.destroy
           redirect_to flow, notice: 'Removed from favorites.'
