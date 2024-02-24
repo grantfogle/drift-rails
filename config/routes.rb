@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   
   resources :flows do
     resources :reports
-    resources :favorites, only: [:create, :destroy]
+    resources :favorites, only: [:create]
+
+    delete "favorites", to: "favorites#destroy", on: :member
   end
 end
 

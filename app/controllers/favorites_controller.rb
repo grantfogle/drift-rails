@@ -2,11 +2,11 @@ class FavoritesController < ApplicationController
     before_action :require_user
 
     def index
-        #def index
-        if Current.user
-            @flows = Current.user.favorite_flows # This retrieves all flows associated with the user through favorites.
-            Rails.logger.debug "Favorite Flows Count: #{Current.user.favorite_flows.count}"
-        end
+      #def index
+      if Current.user
+          @flows = Current.user.favorite_flows # This retrieves all flows associated with the user through favorites.
+          Rails.logger.debug "Favorite Flows Count: #{Current.user.favorite_flows.count}"
+      end
     end
 
     def create
@@ -27,18 +27,15 @@ class FavoritesController < ApplicationController
         end
     end
     
-      def destroy
-        flow = Flow.find(params[:flow_id])
-        # can i get favorite id?
-        
-        favorite = Favorite.find_by(flow_id: flow.id, user_id: Current.user.id)
-        
-        if favorite&.destroy
-          redirect_to flow, notice: 'Removed from favorites.'
-        else
-          redirect_to flow, alert: 'Unable to remove from favorites.'
-        end
+    def destroy
+      favorite = Favorite.find_by(id: params[:id], user_id: Current.user.id)
+
+      if favorite&.destroy
+        redirect_to favorites_path, notice: 'Removed from favorites.'
+      else
+        redirect_to favorites_path, alert: 'Unable to remove from favorites.'
       end
+    end
 
     private
 
