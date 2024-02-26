@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title>DriftRails</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,11 +11,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <%= render 'layouts/header' %>
-  <body class="mx-auto">
-    <main class="container mx-auto px-5 mt-20">
+  <body class="mx-auto flex flex-col h-full">
+    <%= render 'layouts/header' %>
+    <main class="container mx-auto px-5 mt-20 flex-grow">
       <%= yield %>
     </main>
+    <%= render 'layouts/footer' %>
   </body>
-  <%= render 'layouts/footer' %>
 </html>
