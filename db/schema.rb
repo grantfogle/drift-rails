@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_13_040932) do
+ActiveRecord::Schema.define(version: 2024_02_19_043406) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "flow_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flow_id"], name: "index_favorites_on_flow_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "flows", force: :cascade do |t|
     t.text "name"
@@ -42,5 +51,7 @@ ActiveRecord::Schema.define(version: 2024_02_13_040932) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "favorites", "flows"
+  add_foreign_key "favorites", "users"
   add_foreign_key "reports", "flows"
 end
