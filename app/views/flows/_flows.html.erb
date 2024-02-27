@@ -19,8 +19,8 @@
                     <% end %>
                 </td>
                 <td class="px-4 align-middle"><%= link_to flow.name, flow, class: "text-blue-600 no-underline hover:underline" %></td>
-                <td class="px-4 align-middle"><%= flow.location %></td>
-                <td class="px-4 align-middle"><%= flow.state %></td>
+                <td class="px-4 align-middle"><%= flow.stream %></td>
+                <td class="px-4 align-middle"><%= flow.location %>, <%= flow.state %></td>
                 <td class="px-4 align-middle"><%= flow.flow %></td>
             </tr>
         <% end %>
