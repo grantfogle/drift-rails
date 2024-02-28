@@ -1,4 +1,7 @@
 <article class="container mx-auto flex flex-col">
+    <% if Current.user %>
+        <p class="text-lg mb-3">Hello, <%= Current.user.email %></p>
+    <% end %>
     <h1 class="text-3xl mb-4">My Favorite Flows</h1>
 
     <% if @flows.count > 0 %>
