@@ -3,6 +3,11 @@
     <h1 class="text-4xl mb-3"></i>Stream Flows</h1>
 
     <h2 class="text-lg mb-3"><%= Flow.public_count %> public streams and counting!</h2>
+    <%= form_with(url: flows_path, method: "get", local: true) do |form| %>
+        <%= form.label :query, "Search by Stream Name" %>
+        <%= form.text_field :query, value: params[:query], class: "w-[300px] border-2 border-gray-200 rounded p-2" %>
+        <%= form.submit 'Search', name: nil %>
+    <% end %>
 
     <table class="table-auto">
         <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px] font-bold">
