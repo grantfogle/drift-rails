@@ -13,7 +13,7 @@
             <td class="px-4">Location</td>
             <td class="px-4">Flow (cfs)</td>
         </thead>
-        <%= render partial: 'flows/flows', flows: @flows %>
+        <%= render partial: 'flows/flows', locals: {flows: @flows} %>
     </table>
     <% else %>
         <p>You have no favorite flows.</p>

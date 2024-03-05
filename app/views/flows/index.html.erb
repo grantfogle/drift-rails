@@ -4,9 +4,11 @@
 
     <h2 class="text-lg mb-3"><%= Flow.public_count %> public streams and counting!</h2>
     <%= form_with(url: flows_path, method: "get", local: true) do |form| %>
-        <%= form.label :query, "Search by Stream Name" %>
-        <%= form.text_field :query, value: params[:query], data: { reflex: "input->FlowSearchReflex#search" }, class: "w-[300px] border-2 border-gray-200 rounded p-2" %>
-        <%= form.submit 'Search', name: nil %>
+        <%= form.text_field :query,
+            value: params[:query],
+            data: { reflex: "input->FlowSearchReflex#search" },
+            placeholder: "Search by Stream Name...",
+            class: "w-[300px] border-2 border-gray-200 rounded p-2" %>
     <% end %>
 
     <table class="table-auto">
@@ -17,7 +19,7 @@
             <td class="px-4">Location</td>
             <td class="px-4">Flow (cfs)</td>
         </thead>
-        <%= render partial: "flows", flows: @flows %>
+        <%= render partial: "flows", locals: {flows: @flows} %>
     </table>
     <hr>
     <%= link_to "Add Stream Flow", new_flow_path, class: "mt-[40px] w-[200px] text-center bg-blue-500 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded" %>
