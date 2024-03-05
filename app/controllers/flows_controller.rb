@@ -9,7 +9,7 @@ class FlowsController < ApplicationController
       @user = User.find_by(id: session[:user_id])
     end
 
-    @flows = Flow.where("name LIKE ?", "%#{params[:query]}%")
+    @flows ||= Flow.all
   end
 
   def show

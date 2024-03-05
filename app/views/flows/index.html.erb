@@ -5,7 +5,7 @@
     <h2 class="text-lg mb-3"><%= Flow.public_count %> public streams and counting!</h2>
     <%= form_with(url: flows_path, method: "get", local: true) do |form| %>
         <%= form.label :query, "Search by Stream Name" %>
-        <%= form.text_field :query, value: params[:query], class: "w-[300px] border-2 border-gray-200 rounded p-2" %>
+        <%= form.text_field :query, value: params[:query], data: { reflex: "input->FlowSearchReflex#search" }, class: "w-[300px] border-2 border-gray-200 rounded p-2" %>
         <%= form.submit 'Search', name: nil %>
     <% end %>
 
