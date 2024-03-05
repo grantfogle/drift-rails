@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resource :example, constraints: -> { Rails.env.development? }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "flows#index"
 
