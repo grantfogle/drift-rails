@@ -1,16 +1,13 @@
 <section class="container mx-auto flex flex-col">
-
-    <h1 class="text-4xl mb-3"></i>Stream Flows</h1>
-
-    <h2 class="text-lg mb-3"><%= Flow.public_count %> public streams and counting!</h2>
     <%= form_with(url: flows_path, method: "get", local: true) do |form| %>
         <%= form.text_field :query,
             value: params[:query],
             data: { reflex: "input->FlowSearchReflex#search" },
             placeholder: "Search by Stream Name...",
-            class: "w-[300px] border-2 border-gray-200 rounded p-2" %>
+            class: "w-[300px] border-2 border-gray-200 rounded-lg p-3 mb-4 bg-gray-50 focus:border-blue-500 focus:outline-none" %>
     <% end %>
 
+    <!-- add cards instead of table -->
     <table class="table-auto">
         <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px] font-bold">
             <td class="px-4 text-center">Favorite</td>
