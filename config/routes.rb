@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   delete "logout", to: "sessions#destroy"
 
+  get 'maps', to: 'maps#show'
+
   resources :favorites, only: [:index]
   
   resources :flows do
