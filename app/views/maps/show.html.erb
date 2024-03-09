@@ -1,4 +1,17 @@
+<!--
 <div>
   <h1 class="font-bold text-4xl">Maps#show</h1>
   <p>Find me in app/views/maps/show.html.erb</p>
 </div>
+-->
+
+<div id='map' style='width: 100%; height: 400px;'></div>
+<script>
+  mapboxgl.accessToken = '<%= ENV["MAPBOX_ACCESS_TOKEN"] %>';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11', // or any other style
+    center: [-105.2705, 40.0150], // Longitude, Latitude of Colorado
+    zoom: 6 // starting zoom
+  });
+</script>

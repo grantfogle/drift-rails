@@ -63,3 +63,5 @@ gem "tailwindcss-rails", "~> 2.3"
 gem "action-cable-redis-backport", "~> 1"
 
 gem "redis-session-store", "0.11.4"
+
+gem 'dotenv-rails', groups: [:development, :test]
