@@ -1,17 +1,11 @@
-<!--
-<div>
-  <h1 class="font-bold text-4xl">Maps#show</h1>
-  <p>Find me in app/views/maps/show.html.erb</p>
+<div class="mt-2 mb-2" id='map' style='width: 100vw; height: 80vh;'>
 </div>
--->
-
-<div id='map' style='width: 100vw; height: 80vh;'></div>
 <script>
   mapboxgl.accessToken = '<%= ENV["MAPBOX_ACCESS_TOKEN"] %>';
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/outdoors-v11',
-    center: [-105.2705, 38.500],
-    zoom: 6 // starting zoom
+    center: [-105.782, 39.55],
+    zoom: 10 // starting zoom
   });
 </script>
