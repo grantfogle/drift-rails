@@ -1,4 +1,4 @@
-<section class="container mx-auto flex flex-col pt-10">
+<section class="container mx-auto flex flex-col py-10">
     <%= form_with(url: flows_path, method: "get", local: true) do |form| %>
         <%= form.text_field :query,
             value: params[:query],
