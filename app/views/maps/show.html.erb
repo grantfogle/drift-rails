@@ -1,4 +1,4 @@
-<div class="mt-2 mb-2" id='map' style='width: 100vw; height: 80vh;'>
+<section class="mt-2 mb-2" id='map' style='width: 100vw; height: 80vh;'>
   <div id="tools-overlay" class="absolute top-5 left-5 rounded-md bg-white p-4 z-10">
     <p>Search Form will go here</p>
     <p>Search results will go here</p>
@@ -15,7 +15,7 @@
   <div id="layers-overlay" class="absolute bottom-5 right-5 rounded-md bg-white p-4 z-10">
     <p>Map Layers</p>
   </div>
-</div>
+</section>
 
 <script>
   mapboxgl.accessToken = '<%= ENV["MAPBOX_ACCESS_TOKEN"] %>';
@@ -23,6 +23,34 @@
     container: 'map',
     style: 'mapbox://styles/mapbox/outdoors-v11',
     center: [-105.782, 39.55],
-    zoom: 10 // starting zoom
+    zoom: 7 // starting zoom
   });
+
+  map.on('load', function () {
+    map.addSource('example-source', {
+        'type': 'geojson',
+        'data': {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-105.782, 39.55]
+            },
+            'properties': {
+                'title': 'Mapbox',
+                'description': 'Washington, D.C.'
+            }
+        }
+    });
+
+    map.addLayer({
+        'id': 'example-layer',
+        'type': 'circle',
+        'source': 'example-source',
+        'paint': {
+            'circle-radius': 10,
+            'circle-color': '#007cbf'
+        }
+    });
+});
+
 </script>
