@@ -12,7 +12,7 @@
   <!-- Zoom in zoom out -->
   <!-- Map Legend -->
 
-  <div id="layers-overlay" class="absolute bottom-5 right-5 rounded-md bg-white p-4 z-10">
+  <div id="layers-overlay" class="absolute bottom-5 left-5 rounded-md bg-white p-4 z-10">
     <p>Map Layers</p>
   </div>
 </section>
@@ -25,6 +25,9 @@
     center: [-105.782, 39.55],
     zoom: 7 // starting zoom
   });
+
+  map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
 
   map.on('load', function () {
     map.addSource('example-source', {
