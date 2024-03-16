@@ -21,7 +21,7 @@
   mapboxgl.accessToken = '<%= ENV["MAPBOX_ACCESS_TOKEN"] %>';
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/outdoors-v11',
+    style: 'mapbox://styles/grantjfogle/cl0enmci8000715mufow03qvr',
     center: [-105.782, 39.55],
     zoom: 7
   });
@@ -54,6 +54,22 @@
             'circle-color': '#007cbf'
         }
     });
+
+    /*
+    map.addLayer({
+         'id': 'grantjfogle.101utn3o',
+           'type': 'raster',
+           'source': {
+               'type': 'raster',
+               'tiles': [
+                   'https://api.mapbox.com/v4/grantjfogle.101utn3o/{z}/{x}/{y}.png?access_token=<%= ENV["MAPBOX_ACCESS_TOKEN"] %>'
+               ],
+               'tileSize': 256
+           },
+           'minzoom': 0,
+           'maxzoom': 10
+       });
+       */
 });
 
 </script>
