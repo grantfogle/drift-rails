@@ -9,11 +9,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Add these lines within the <head> section -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
   </head>
 
   <body class="mx-auto flex flex-col h-full">
     <%= render 'layouts/header' %>
-    <main class="container mx-auto px-5 mt-4 flex-grow">
+    <main class="flex-grow w-full p-0 m-0">
       <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
