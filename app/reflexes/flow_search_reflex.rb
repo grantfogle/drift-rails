@@ -11,6 +11,6 @@ class FlowSearchReflex < ApplicationReflex
 
     def map_search
         @flows = Flow.where("name LIKE ?", "%#{params[:query]}%").limit(5)
-        # morph "#flows-table", render(partial: "flows/flows", locals: { flows: @flows })
+        morph "#map-search-results-table", render(partial: "maps/components/results", locals: { flows: @flows })
     end
 end
