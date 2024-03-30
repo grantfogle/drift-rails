@@ -10,7 +10,12 @@ class FlowSearchReflex < ApplicationReflex
     end
 
     def map_search
-        @flows = Flow.where("name LIKE ?", "%#{params[:query]}%").limit(5)
-        morph "#map-search-results-table", render(partial: "maps/components/results", locals: { flows: @flows })
+        if params[:query].length < 1
+            # Optionally, clear the current search results or handle as needed
+            morph "#map-search-results-table", ""
+        else
+            @flows = Flow.where("name LIKE ?", "%#{params[:query]}%").limit(5)
+            morph "#map-search-results-table", render(partial: "maps/components/results", locals: { flows: @flows })
+        end
     end
 end
