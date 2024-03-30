@@ -1,10 +1,8 @@
-
-
 <%= form_with(url: flows_path, method: "get", local: true) do |form| %>
     <div class="relative">
         <%= form.text_field :query,
             value: params[:query],
-            data: { reflex: "input->FlowSearchReflex#search" },
+            data: { reflex: "input->FlowSearchReflex#map_search" },
             placeholder: "Search",
             class: "w-[300px] text-sm pl-8 pr-2 py-2 border-2 border-gray-200 rounded-lg bg-gray-50 focus:outline-none" 
             %>
@@ -12,16 +10,7 @@
     </div>
 <% end %>
 
-
-<!-- 
-<%= form_with(url: flows_path, method: "get", local: true) do |form| %>
-    <%= form.text_field :query,
-        value: params[:query],
-        data: { reflex: "input->FlowSearchReflex#search" },
-        placeholder: "Search",
-        class: "text-xs px-2 border-0 bg-transparent focus:outline-none" %>
-<% end %>
--->
+<%= render 'maps/components/results', locals: { flows: @flows } %>
 
 <!-- 
 # create a partial, i think i should also include the search results in the partial

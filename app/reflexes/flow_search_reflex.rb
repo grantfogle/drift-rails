@@ -8,4 +8,9 @@ class FlowSearchReflex < ApplicationReflex
         ## still works on the page
         # morph "#flows-table", render(partial: "flows/flows", locals: { flows: @flows })
     end
+
+    def map_search
+        @flows = Flow.where("name LIKE ?", "%#{params[:query]}%").limit(5)
+        # morph "#flows-table", render(partial: "flows/flows", locals: { flows: @flows })
+    end
 end
