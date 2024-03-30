@@ -1,0 +1,27 @@
+<%= form_with(url: flows_path, method: "get", local: true) do |form| %>
+    <div class="relative">
+        <%= form.text_field :query,
+            value: params[:query],
+            data: { reflex: "input->FlowSearchReflex#map_search" },
+            placeholder: "Search",
+            class: "w-[300px] text-sm pl-8 pr-2 py-2 border-2 border-gray-200 rounded-lg bg-gray-50 focus:outline-none" 
+            %>
+            <i class="fa-solid fa-search absolute left-2 top-1/2 transform -translate-y-1/2"></i>
+    </div>
+<% end %>
+
+<section id="map-search-results-table"></section>
+
+<!-- 
+# create a partial, i think i should also include the search results in the partial
+# 
+# i want to create a basic search form
+
+# mvp
+# and i want to render a basic table of results,
+# that when clicked goes to the river on the map
+# i also want to add landmarks, like fly shops, 
+# how do i pass search result to map?
+
+# v2. parks, campgrounds
+-->
