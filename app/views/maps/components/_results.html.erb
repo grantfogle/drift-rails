@@ -1,13 +1,16 @@
-<section class="map-search-table" id="map-search-results-table">
+<section>
     <!-- main bg, only show when item exists -->
+    <div class="bg-white p-4 rounded-md shadow-md w-[368px] mt-2">
     <% if !flows.nil? %>
         <% flows.each do |flow| %>
-            <div class="bg-white p-2 mt-2 rounded-md">
+            <div class="p-2 rounded-md hover:bg-gray-100 hover:cursor-pointer">
             <!-- search result -->
-            <div class="flex items-center">
-                <i class="fa-solid fa-water text-blue-600 mr-2"></i>
-                <p class="text-sm mr-2">Colorado River</p>
-                <p class="text-sm text-gray-500">Kremmling, CO</p>
+                <div class="flex items-center">
+                    <i class="fa-solid fa-water text-blue-600 mr-2"></i>
+                    <p class="text-sm mr-2"><%= flow.name %></p>
+                    <p class="text-sm text-gray-500 mr-1"><%= flow.stream %></p>
+                    <p class="text-xw text-gray-500"><%= flow.location %>, <%= flow.state %></p>
+                </div>
             </div>
         <% end %>
     <% end %>
