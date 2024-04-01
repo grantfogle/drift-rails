@@ -24,4 +24,8 @@ class FlowSearchReflex < ApplicationReflex
         @selected_flow = Flow.find(flow_id)
         morph "#popup-overlay", render(partial: "maps/components/popup", locals: { flow: @selected_flow })
     end
+
+    def hide_search_popup
+        morph "#popup-overlay", ""
+    end
 end
