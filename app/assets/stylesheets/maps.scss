@@ -7,7 +7,10 @@
     display: none;
 }
 
-#layers-toggle:checked ~ .layers-toggle-button::after {
-    background: red;
-    height: 800px;
+#layers-toggle:checked ~ .layers-toggle-button {
+    display: none;
+}
+
+#layers-toggle:checked ~ .layers-content {
+    display: block;
 }
