@@ -1,16 +1,8 @@
 
-.hidden-checkbox {
-    display: none;
-}
+.hidden-checkbox { display: none; }
 
-.layers-content {
-    display: none;
-}
+.layers-content { display: none; }
 
-#layers-toggle:checked ~ .layers-toggle-button {
-    display: none;
-}
+#layers-toggle:checked ~ .layers-toggle-button { display: none;}
 
-#layers-toggle:checked ~ .layers-content {
-    display: block;
-}
+#layers-toggle:checked ~ .layers-content { display: block;}

@@ -18,4 +18,10 @@ class FlowSearchReflex < ApplicationReflex
             morph "#map-search-results-table", render(partial: "maps/components/results", locals: { flows: @flows })
         end
     end
+
+    def display_search_popup
+        flow_id = element.dataset[:id]
+        @selected_flow = Flow.find(flow_id)
+        morph "#popup-overlay", render(partial: "maps/components/popup", locals: { flow: @selected_flow })
+    end
 end
