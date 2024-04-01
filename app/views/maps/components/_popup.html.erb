@@ -1,15 +1,8 @@
 <div class="bg-white p-4 rounded-md shadow-md w-[368px]">
     <img src="https://www.flyfishingcolorado.net/wp-content/uploads/2020/05/MG_2785JPG-scaled.jpg" alt="Colorado River" class="w-full h-[200px] object-cover mb-4">
-    <h2 class="text-lg font-bold"><%= flow.name %></h2>
-    <p><%= flow.stream %></p>
-    <p class="text-sm">Location: <%= flow.location %>, <%= flow.state %></p>
-    <p class="text-sm">Flow: 500 cfs</p>
-    <p class="text-sm">Section: Pumphouse to Radium</p>
-    <p class="text-sm">Class: II-III</p>
-    <p class="text-sm">Gradient: 11 ft/mi</p>
-    <p class="text-sm">Length: 5 miles</p>
-    <p class="text-sm">Season: May - September</p>
-    <p class="text-sm">Description: The Colorado River is a classic western river with stunning views and fun rapids.</p>
-    <a href="#" class="text-blue-500">View Details</a>
+    <h2 class="text-lg"><span class="font-bold"><%= flow.name %></span> <%= flow.stream %></h2>
+    <p class="text-lg">Location: <%= flow.location %>, <%= flow.state %></p>
+    <p class="text-lg">Flow: <%= flow.flow %> cfs</p>
+    <a href="#" class="text-blue-500 mr-2">View Details</a>
     <a href="#" class="text-blue-500">Add to Favorites</a>
 </div>
