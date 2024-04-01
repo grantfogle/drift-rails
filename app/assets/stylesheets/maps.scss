@@ -1,0 +1,13 @@
+
+.hidden-checkbox {
+    display: none;
+}
+
+.layers-content {
+    display: none;
+}
+
+#layers-toggle:checked ~ .layers-toggle-button::after {
+    background: red;
+    height: 800px;
+}
