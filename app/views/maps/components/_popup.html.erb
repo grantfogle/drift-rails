@@ -8,10 +8,14 @@
             ></i></p>
     </div>
     <img src="https://www.flyfishingcolorado.net/wp-content/uploads/2020/05/MG_2785JPG-scaled.jpg" alt="Colorado River" class="w-full h-[200px] object-cover mb-4">
-    <h2 class="text-lg"><span class="font-bold"><%= flow.name %></span> <%= flow.stream %></h2>
+    <h2 class="text-lg">
+        <!-- <i class="fa-regular fa-star text-yellow-500 text-xl hover:text-green-500"></i> -->
+        <span class="font-bold"><%= flow.name %></span> <%= flow.stream %>
+    </h2>
     <p class="text-lg">Location: <%= flow.location %>, <%= flow.state %></p>
     <p class="text-lg">Flow: <%= flow.flow %> cfs</p>
-    <a href="#" class="text-blue-500 mr-2">View Details</a>
+    <%= link_to "View Details", flow, class: "text-blue-600 text-lg no-underline hover:underline" %></td>
     <!-- Allow users to favorite flows -->
+    <!-- Check if user is logged in: then allow user to favorite, and maybe use the outline star-->
     <a href="#" class="text-blue-500">Add to Favorites</a>
 </div>
