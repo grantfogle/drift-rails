@@ -14,8 +14,10 @@
     </h2>
     <p class="text-lg">Location: <%= flow.location %>, <%= flow.state %></p>
     <p class="text-lg">Flow: <%= flow.flow %> cfs</p>
-    <%= link_to "View Details", flow, class: "text-blue-600 text-lg no-underline hover:underline" %></td>
+    <%= link_to "View Details", flow, class: "text-blue-600 text-lg no-underline hover:underline mr-2" %></td>
     <!-- Allow users to favorite flows -->
     <!-- Check if user is logged in: then allow user to favorite, and maybe use the outline star-->
-    <a href="#" class="text-blue-500">Add to Favorites</a>
+    <% if current_user %>
+        <a href="#" class="text-blue-500 text-lg">Add to Favorites</a>
+    <% end %>
 </div>

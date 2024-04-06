@@ -21,8 +21,9 @@ class FlowSearchReflex < ApplicationReflex
 
     def display_search_popup
         flow_id = element.dataset[:id]
+        @current_user = User.find_by(id: session[:user_id])
         @selected_flow = Flow.find(flow_id)
-        morph "#popup-overlay", render(partial: "maps/components/popup", locals: { flow: @selected_flow })
+        morph "#popup-overlay", render(partial: "maps/components/popup", locals: { flow: @selected_flow, current_user: @current_user})
     end
 
     def hide_search_popup
