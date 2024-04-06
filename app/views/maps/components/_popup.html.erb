@@ -17,7 +17,9 @@
     <%= link_to "View Details", flow, class: "text-blue-600 text-lg no-underline hover:underline mr-2" %></td>
     <!-- Allow users to favorite flows -->
     <!-- Check if user is logged in: then allow user to favorite, and maybe use the outline star-->
+    <!-- Check if user has favorited-->
     <% if current_user %>
+        <!-- Check if user has favorited / display empty or full star depending, maybe darken favorite -->
         <a href="#" class="text-blue-500 text-lg">Add to Favorites</a>
     <% end %>
 </div>

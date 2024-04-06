@@ -146,15 +146,43 @@
         }
     });
 
-    map.addLayer({
-      'id': 'fly-shop-layer',
-      'type': 'circle',
-      'source': 'fly-shop-source',
-      'paint': {
-        'circle-radius': 10,
-        'circle-color': '#007cbf'
-      }
-    });
+  map.addLayer({
+    'id': 'fly-shop-layer',
+    'type': 'circle',
+    'source': 'fly-shop-source',
+    'paint': {
+      'circle-radius': 10,
+      'circle-color': '#007cbf'
+    }
+  });
+
+  map.on('mouseenter', 'fly-shop-layer', function() {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+    
+  map.on('mouseleave', 'fly-shop-layer', function() {
+    map.getCanvas().style.cursor = '';
+  });
+
+  map.on('click', 'fly-shop-layer', function(e) {
+  // Access information about the features clicked
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['fly-shop-layer']
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  // Perform actions with the feature, e.g., display a popup
+  var popup = new mapboxgl.Popup()
+    .setLngLat(feature.geometry.coordinates)
+    .setText('You clicked on ' + feature.properties.name) // Assuming 'name' is a property of the feature
+    .addTo(map);
+  });
+
 });
 
 </script>

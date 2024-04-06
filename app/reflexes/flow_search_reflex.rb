@@ -20,6 +20,7 @@ class FlowSearchReflex < ApplicationReflex
     end
 
     def display_search_popup
+        # get favorite status
         flow_id = element.dataset[:id]
         @current_user = User.find_by(id: session[:user_id])
         @selected_flow = Flow.find(flow_id)
