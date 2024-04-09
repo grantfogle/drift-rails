@@ -1,14 +1,25 @@
-<div class="bg-white p-4 rounded-md shadow-md w-[368px]">
+<div class="bg-white py-2 px-4 rounded-md shadow-md w-[368px]">
+    <div class="flex justify-end text-2xl pb-2">
+        <p class="hover:text-blue-500 hover:cursor-pointer">
+            <i class="fa-solid fa-xmark"
+                data-reflex="click->FlowSearchReflex#hide_search_popup"
+                data-reflex-dataset="combined"
+                data-id="<%= flow.id %>"
+            ></i></p>
+    </div>
     <img src="https://www.flyfishingcolorado.net/wp-content/uploads/2020/05/MG_2785JPG-scaled.jpg" alt="Colorado River" class="w-full h-[200px] object-cover mb-4">
-    <h2 class="text-lg font-bold">Colorado River</h2>
-    <p class="text-sm">Location: Grand County, Colorado</p>
-    <p class="text-sm">Flow: 500 cfs</p>
-    <p class="text-sm">Section: Pumphouse to Radium</p>
-    <p class="text-sm">Class: II-III</p>
-    <p class="text-sm">Gradient: 11 ft/mi</p>
-    <p class="text-sm">Length: 5 miles</p>
-    <p class="text-sm">Season: May - September</p>
-    <p class="text-sm">Description: The Colorado River is a classic western river with stunning views and fun rapids.</p>
-    <a href="#" class="text-blue-500">View Details</a>
-    <a href="#" class="text-blue-500">Add to Favorites</a>
+    <h2 class="text-lg">
+        <!-- <i class="fa-regular fa-star text-yellow-500 text-xl hover:text-green-500"></i> -->
+        <span class="font-bold"><%= flow.name %></span> <%= flow.stream %>
+    </h2>
+    <p class="text-lg">Location: <%= flow.location %>, <%= flow.state %></p>
+    <p class="text-lg">Flow: <%= flow.flow %> cfs</p>
+    <%= link_to "View Details", flow, class: "text-blue-600 text-lg no-underline hover:underline mr-2" %></td>
+    <!-- Allow users to favorite flows -->
+    <!-- Check if user is logged in: then allow user to favorite, and maybe use the outline star-->
+    <!-- Check if user has favorited-->
+    <% if current_user %>
+        <!-- Check if user has favorited / display empty or full star depending, maybe darken favorite -->
+        <a href="#" class="text-blue-500 text-lg">Add to Favorites</a>
+    <% end %>
 </div>
