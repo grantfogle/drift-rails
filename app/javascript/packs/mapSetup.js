@@ -1,34 +1,23 @@
-<section class="mt-2 mb-2" id='map' style='width: 100vw; height: 80vh;'>
-  <div id="tools-overlay" 
-       class="absolute top-5 left-5 z-10">
-    <%= render 'maps/components/search', locals: {flows: @flows } %>
-  </div>
+import mapbox from 'mapbox-gl';
 
-  <!--
-  <div data-controller="pdf-popup" id="pdf-popup-overlay" 
-    class="<%= 'hidden' unless session[:show_popup] %>">
-      <h3 class="text-xl z-12 top-100 right-10">PDFFFFFF</h3>
-  </div>
-  -->
+// add this to the erb file:
+// or how do i bring in the asset path via javascript
+mapboxgl.accessToken = '<%= ENV["MAPBOX_ACCESS_TOKEN"] %>';
 
-  <div id="popup-overlay" class="absolute top-5 right-5 z-10"></div>
-
-  <!-- Map Legend -->
-  <div id="layers-overlay" class="absolute bottom-5 left-5 z-10">
-    <%= render 'maps/components/layers' %>
-  </div>
-</section>
-
-<script>
-  mapboxgl.accessToken = '<%= ENV["MAPBOX_ACCESS_TOKEN"] %>';
-  var map = new mapboxgl.Map({
+var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/grantjfogle/cl0enmci8000715mufow03qvr',
     center: [-105.782, 39.55],
     zoom: 7
-  });
+});
 
-  map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
+const setupMap = () => {
+    loadMapSources();
+    addMapLayers();
+    setupEventHandlers();
+}
 
   map.on('load', function () {
     map.addSource('example-source', {
@@ -215,6 +204,3 @@ document.getElementById('toggle-fly-shop').addEventListener('change', function(e
     map.setLayoutProperty(layerId, 'visibility', 'none');
   }
 });
-
-
-</script>
