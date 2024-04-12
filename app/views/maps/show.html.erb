@@ -4,8 +4,7 @@
     <%= render 'maps/components/search', locals: {flows: @flows } %>
   </div>
 
-  <div data-controller="pdf-popup"
-    id="pdf-popup-overlay" 
+  <div data-controller="pdf-popup" id="pdf-popup-overlay" 
     class="<%= 'hidden' unless session[:show_popup] %>">
       <h3 class="text-xl z-12 top-100 right-10">PDFFFFFF</h3>
   </div>
