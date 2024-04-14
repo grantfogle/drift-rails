@@ -3,7 +3,8 @@ import { flyShopSources } from '../lib/flyShopSources';
 
 // add this to the erb file:
 // or how do i bring in the asset path via javascript
-mapboxgl.accessToken = '<%= ENV["MAPBOX_ACCESS_TOKEN"] %>';
+mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
+
 
 var map = new mapboxgl.Map({
     container: 'map',
