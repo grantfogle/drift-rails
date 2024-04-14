@@ -1,10 +1,9 @@
-import mapbox from 'mapbox-gl';
+// import mapbox from 'mapbox-gl';
 import { flyShopSources } from '../lib/flyShopSources';
 
 // add this to the erb file:
 // or how do i bring in the asset path via javascript
 mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
-
 
 var map = new mapboxgl.Map({
     container: 'map',
@@ -22,11 +21,20 @@ const setupMap = () => {
 }
 
 const loadMapSources = () => {
-  // Adding sources for map features
   map.addSource('example-source', {
     type: 'geojson',
-    data: 'path_to_example_source_data'
-  });
+    data: {
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [-105.782, 39.55]
+        },
+        properties: {
+            title: 'Mapbox',
+            description: 'Washington, D.C.'
+        }
+    }
+});
 
   map.addSource('fly-shop-source', {
     type: 'geojson',
@@ -35,7 +43,6 @@ const loadMapSources = () => {
 };
 
 const addMapLayers = () => {
-  // Adding layers using external data
   map.addLayer({
     'id': 'example-layer',
     'type': 'circle',
