@@ -11,13 +11,11 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
-// const setupMap = () => {
 map.on('load', () => {
     loadMapSources();
     addMapLayers();
     setupEventHandlers();
 });
-// }
 
 const loadMapSources = () => {
   map.addSource('example-source', {
@@ -59,9 +57,8 @@ const addMapLayers = () => {
     'paint': {
         'circle-radius': 10,  // Adjust radius for the size of the circle
         'circle-color': '#007cbf'  // Specify the color of the circle
-    }
-});
-
+        }
+    });
 };
 
 const setupEventHandlers = () => {
@@ -87,5 +84,3 @@ const displayPopup = (e) => {
     .setText('You clicked on ' + feature.properties.name)
     .addTo(map);
 };
-
-// document.addEventListener('DOMContentLoaded', setupMap);
