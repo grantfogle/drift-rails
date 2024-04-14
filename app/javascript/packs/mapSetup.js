@@ -1,8 +1,5 @@
-// import mapbox from 'mapbox-gl';
 import { flyShopSources } from '../lib/flyShopSources';
 
-// add this to the erb file:
-// or how do i bring in the asset path via javascript
 mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
 var map = new mapboxgl.Map({
@@ -14,11 +11,13 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
-const setupMap = () => {
+// const setupMap = () => {
+map.on('load', () => {
     loadMapSources();
     addMapLayers();
     setupEventHandlers();
-}
+});
+// }
 
 const loadMapSources = () => {
   map.addSource('example-source', {
@@ -55,13 +54,14 @@ const addMapLayers = () => {
 
   map.addLayer({
     'id': 'fly-shop-layer',
-    'type': 'symbol',
+    'type': 'circle',
     'source': 'fly-shop-source',
-    'layout': {
-      'icon-image': '<%= asset_path("shop-solid.svg") %>', // Must be in ERB or managed otherwise
-      'icon-size': 1
+    'paint': {
+        'circle-radius': 10,  // Adjust radius for the size of the circle
+        'circle-color': '#007cbf'  // Specify the color of the circle
     }
-  });
+});
+
 };
 
 const setupEventHandlers = () => {
@@ -88,4 +88,4 @@ const displayPopup = (e) => {
     .addTo(map);
 };
 
-document.addEventListener('DOMContentLoaded', setupMap);
+// document.addEventListener('DOMContentLoaded', setupMap);
