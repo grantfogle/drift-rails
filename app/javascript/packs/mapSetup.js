@@ -72,6 +72,8 @@ const setupEventHandlers = () => {
   });
 
   map.on('click', 'fly-shop-layer', displayPopup);
+
+  toggleMapLayers('toggle-fly-shop', 'fly-shop-layer');
 };
 
 const displayPopup = (e) => {
@@ -84,3 +86,15 @@ const displayPopup = (e) => {
     .setText('You clicked on ' + feature.properties.name)
     .addTo(map);
 };
+
+const toggleMapLayers = (mapElement, layerId) => {
+    document.getElementById(mapElement).addEventListener('change', function(e) {
+        var visibility = map.getLayoutProperty(layerId, 'visibility');
+      
+        if (e.target.checked) {
+          map.setLayoutProperty(layerId, 'visibility', 'visible');
+        } else {
+          map.setLayoutProperty(layerId, 'visibility', 'none');
+        }
+      });
+}
