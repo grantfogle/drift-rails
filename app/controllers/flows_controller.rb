@@ -7,7 +7,7 @@ class FlowsController < ApplicationController
       @user = User.find_by(id: session[:user_id])
     end
 
-    @flows ||= Flow.limit(20)
+    @flows ||= Flow.limit(10)
   end
 
   def show

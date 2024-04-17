@@ -62,18 +62,18 @@ const addMapLayers = () => {
 };
 
 const setupEventHandlers = () => {
-  // Setup event listeners for map interactions
-  map.on('mouseenter', 'fly-shop-layer', function() {
-    map.getCanvas().style.cursor = 'pointer';
-  });
+    //
+    map.on('mouseenter', 'fly-shop-layer', function() {
+        map.getCanvas().style.cursor = 'pointer';
+    });
 
-  map.on('mouseleave', 'fly-shop-layer', function() {
-    map.getCanvas().style.cursor = '';
-  });
+    map.on('mouseleave', 'fly-shop-layer', function() {
+        map.getCanvas().style.cursor = '';
+    });
 
-  map.on('click', 'fly-shop-layer', displayPopup);
+    map.on('click', 'fly-shop-layer', displayPopup);
 
-  toggleMapLayers('toggle-fly-shop', 'fly-shop-layer');
+    toggleMapLayers('toggle-fly-shop', 'fly-shop-layer');
 };
 
 const displayPopup = (e) => {
@@ -86,6 +86,16 @@ const displayPopup = (e) => {
     .setText('You clicked on ' + feature.properties.name)
     .addTo(map);
 };
+
+const toggleCursorForItem = () => {
+    map.on('mouseenter', 'fly-shop-layer', function() {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'fly-shop-layer', function() {
+        map.getCanvas().style.cursor = '';
+    });
+}
 
 const toggleMapLayers = (mapElement, layerId) => {
     document.getElementById(mapElement).addEventListener('change', function(e) {

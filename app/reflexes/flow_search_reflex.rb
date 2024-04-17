@@ -2,10 +2,11 @@
 
 class FlowSearchReflex < ApplicationReflex
     def search
-        @flows = Flow.where("name LIKE ?", "%#{params[:query]}%").limit(20)
+        @flows = Flow.where("name LIKE ?", "%#{params[:query]}%").limit(10)
         ## i have commented out the selector morph
         ## because i want to ensure that the logic for favorited/unfavoriting a flow
         ## still works on the page
+        # how do i morph ther table of flows?
         # morph "#flows-table", render(partial: "flows/flows", locals: { flows: @flows })
     end
 
