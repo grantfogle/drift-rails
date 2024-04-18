@@ -5,7 +5,8 @@
                 data-reflex="click->FlowSearchReflex#hide_search_popup"
                 data-reflex-dataset="combined"
                 data-id="<%= flow.id %>"
-            ></i></p>
+            ></i>
+        </p>
     </div>
     <img src="https://www.flyfishingcolorado.net/wp-content/uploads/2020/05/MG_2785JPG-scaled.jpg" alt="Colorado River" class="w-full h-[200px] object-cover mb-4">
     <h2 class="text-lg">
@@ -22,8 +23,9 @@
         <!-- Check if user has favorited / display empty or full star depending, maybe darken favorite -->
         <a href="#" class="text-blue-500 text-lg">Add to Favorites</a>
     <% end %>
-    <%= button_to "Rules and Regulations", "#", 
+    <p class="text-lg text-blue-600 hover:underline hover:cursor-pointer" data-reflex="click->MapReflex#toggle_pdf_view">Rules and Regulations</p>
+    <!-- <%= button_to "Rules and Regulations", "#", 
         data: { reflex: "click->MapReflex#toggle_pdf_view" }, 
-        class: "text-lg text-blue-600 hover:underline hover:cursor-pointer" %>
+        class: "text-lg text-blue-600 hover:underline hover:cursor-pointer" %>-->
     <!-- <p class="text-lg text-blue-600 hover:underline">Rules and Regulations</p> -->
 </div>

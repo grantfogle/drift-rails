@@ -9,6 +9,8 @@ var map = new mapboxgl.Map({
     zoom: 7
 });
 
+var scale = new mapboxgl.ScaleControl({ maxWidth: 120, unit: 'imperial' });
+map.addControl(scale, 'bottom-right');
 map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
 map.on('load', () => {

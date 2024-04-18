@@ -1,6 +1,7 @@
 class MapsController < ApplicationController
   def show
     if Current.user
+      session[:show_pdf] = false
       @flows = nil
     else
     # check if user is logged in,
