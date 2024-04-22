@@ -2,10 +2,10 @@ class FavoritesController < ApplicationController
     before_action :require_user
 
     def index
-      #def index
       if Current.user
-          @flows = Current.user.favorite_flows # This retrieves all flows associated with the user through favorites.
-          Rails.logger.debug "Favorite Flows Count: #{Current.user.favorite_flows.count}"
+          @flows = FavoriteService.new(Current.user).fetch_favorites
+          # @flows = Current.user.favorite_flows
+          # Rails.logger.debug "Favorite Flows Count: #{Current.user.favorite_flows.count}"
       end
     end
 
