@@ -10,21 +10,14 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        flow = Flow.find(params[:flow_id])
-
-        existing_favorite = Favorite.find_by(flow_id: flow.id, user_id: Current.user.id)
-
-        if existing_favorite
-          redirect_to flow_path, alert: 'Already a favorite.'
-        else
-          favorite = Current.user.favorites.build(flow: flow)
-          # check if the flow is already a favorite  
-          if favorite.save
-            redirect_to favorites_path, notice: 'Added to favorites.'
-          else
-            redirect_to favorites_path, alert: 'Unable to add to favorites.'
-          end
-        end
+      service = FavoriteService.new(Current.user)
+      result = service.add_favorite(params[:flow_id])
+  
+      if result[:status] == :success
+        notice: result[:message]
+      else
+        alert: result[:message]
+      end
     end
     
     def destroy
