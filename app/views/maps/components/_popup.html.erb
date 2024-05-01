@@ -20,6 +20,18 @@
     <!-- Check if user is logged in: then allow user to favorite, and maybe use the outline star-->
     <!-- Check if user has favorited-->
     <% if current_user %>
+        <% if current_user.favorite_flows.include?(flow) %>
+            <i class="fa-solid fa-star text-yellow-500 text-xl hover:text-green-500" 
+                data-reflex="click->FavoritesReflex#remove_favorite"
+                data-flow-id="<%= flow.id %>"
+            ></i>
+        <% else %>
+            <i class="fa-regular fa-star text-yellow-500 text-xl hover:text-green-500" 
+                data-reflex="click->FavoritesReflex#add_favorite"
+                data-flow-id="<%= flow.id %>"
+            ></i>
+        <% end %>
+    <% else %>
         <!-- Check if user has favorited / display empty or full star depending, maybe darken favorite -->
         <a href="#" class="text-blue-500 text-lg">Add to Favorites</a>
     <% end %>
