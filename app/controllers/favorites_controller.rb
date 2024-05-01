@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
     before_action :require_user
 
     def index
+      # TODO do i need this conditional
       if Current.user
           @flows = FavoriteService.new(Current.user).fetch_favorites
           # @flows = Current.user.favorite_flows
@@ -10,29 +11,22 @@ class FavoritesController < ApplicationController
     end
 
     def create
-      service = FavoriteService.new(Current.user)
-      result = service.add_favorite(params[:flow_id])
-  
+      result = FavoriteService.new(Current.user).add_favorite(params[:flow_id])
       if result[:status] == :success
-        notice: result[:message]
+        redirect_to favorites_path, notice: result[:message]
       else
-        alert: result[:message]
+        redirect_to flows_path, alert: result[:message]
       end
     end
     
     def destroy
-      favorite = Favorite.find_by(user_id: Current.user.id, flow_id: params[:id])
-
-      if favorite&.delete
-        redirect_to favorites_path, notice: 'Removed from favorites.'
-      else
-        redirect_to favorites_path, alert: 'Unable to remove from favorites.'
-      end
+      result = FavoriteService.new(Current.user).remove_favorite(params[:id])
+      redirect_to favorites_path, result[:status] == :success ? { notice: result[:message] } : { alert: result[:message] }
     end
-
+  
     private
 
     def require_user
-        redirect_to sign_in_path, alert: 'You must be logged in to perform this action.' unless Current.user
-    end
+      redirect_to sign_in_path, alert: 'You must be logged in to perform this action.' unless Current.user
+  end
 end
