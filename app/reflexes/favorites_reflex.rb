@@ -9,8 +9,6 @@ class FavoritesReflex < ApplicationReflex
       if favorite
         favorite.destroy
         @message = 'Removed from favorites.'
-        # morph selector
-        # morph 'favo'
       else
         connection.current_user.favorites.create(flow: flow)
         @message = 'Added to favorites.'

@@ -19,12 +19,7 @@
     <!-- Allow users to favorite flows -->
     <!-- Check if user is logged in: then allow user to favorite, and maybe use the outline star-->
     <!-- Check if user has favorited-->
-    <% if current_user %>
-        <%= render partial: "components/favorites/favorite", locals: { is_favorited: current_user.favorite_flows.include?(flow), flow_id: flow.id } %>
-    <% else %>
-        <!-- Check if user has favorited / display empty or full star depending, maybe darken favorite -->
-        <a href="#" class="text-blue-500 text-lg">Add to Favorites</a>
-    <% end %>
+    <%= render partial: "components/favorites/favorite", locals: { is_favorited: current_user.favorite_flows.include?(flow), flow_id: flow.id } %>
     <p class="text-lg text-blue-600 hover:underline hover:cursor-pointer" data-reflex="click->MapReflex#toggle_pdf_view">Rules and Regulations</p>
     <!-- <%= button_to "Rules and Regulations", "#", 
         data: { reflex: "click->MapReflex#toggle_pdf_view" }, 
