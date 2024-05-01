@@ -1,0 +1,17 @@
+<% if is_favorited %>
+    <button type="button" 
+        data-reflex="click->FavoritesReflex#add_favorite"
+        data-flow-id="<%= flow_id %>"
+        title="Unfavorite"
+        class="text-lg hover:underline focus:outline-none hover:cursor-pointer">
+        <i class="fas fa-star fa-xl"></i>
+    </button>
+<% else %>
+    <button type="button" 
+        data-reflex="click->FavoritesReflex#remove_favorite"
+        data-flow-id="<%= flow_id %>"
+        title="Unfavorite"
+        class="text-lg hover:underline focus:outline-none hover:cursor-pointer">
+        <i class="fa-regular fa-star fa-xl"></i>
+    </button>
+<% end %>
