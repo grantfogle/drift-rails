@@ -1,9 +1,9 @@
-<div id="favorites-button-<%= flow_id %>">
+
     <% if is_favorited %>
         <button type="button" 
             data-reflex="click->FavoritesReflex#toggle_favorite"
             data-flow-id="<%= flow_id %>"
-            data-is-favorited="true"
+            data-is-favorited="<%= is_favorited %>"
             title="Unfavorite"
             class="text-lg text-yellow-500 hover:underline focus:outline-none hover:cursor-pointer">
             <i class="fas fa-star fa-xl"></i>
@@ -12,10 +12,9 @@
         <button type="button" 
             data-reflex="click->FavoritesReflex#toggle_favorite"
             data-flow-id="<%= flow_id %>"
-            data-is-favorited="false"
-            title="Unfavorite"
+            data-is-favorited="<%= is_favorited %>"
+            title="Favorite"
             class="text-lg text-yellow-500 hover:underline focus:outline-none hover:cursor-pointer">
             <i class="fa-regular fa-star fa-xl"></i>
         </button>
     <% end %>
-</div>

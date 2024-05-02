@@ -39,4 +39,5 @@ class FavoriteService
           { status: :error, message: 'Unable to add to favorites.' }
         end
     end
+    
   end
