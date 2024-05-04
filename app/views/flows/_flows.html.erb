@@ -4,11 +4,9 @@
             <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
             <td class="px-4 text-center text-yellow-500">
                 <% if Current.user %>
-                <div id="favorites-button-<%= flow.id %>">
-                    <%= render partial: "components/favorites/favorite", locals: { is_favorited: Current.user.favorite_flows.include?(flow), flow_id: flow.id } %>
-                </div>
+                    <%= render partial: "components/favorites/favorites", locals: { is_favorited: Current.user.favorite_flows.include?(flow), flow_id: flow.id } %>
                 <% end %>
-                </td>
+            </td>
                 <td class="px-4 align-middle"><%= link_to flow.name, flow, class: "text-blue-600 no-underline hover:underline" %></td>
                 <td class="px-4 align-middle"><%= flow.stream %></td>
                 <td class="px-4 align-middle"><%= flow.location %>, <%= flow.state %></td>
