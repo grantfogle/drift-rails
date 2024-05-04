@@ -1,11 +1,12 @@
 <section class="container mx-auto flex flex-col py-10">
-    <%= form_with(url: flows_path, method: "get", local: true) do |form| %>
-        <%= form.text_field :query,
-            value: params[:query],
+    <%= form_tag '#', method: :get do %>
+        <%= text_field_tag :query,
+            params[:query],
             data: { reflex: "input->FlowSearchReflex#search" },
             placeholder: "Search by Stream Name...",
             class: "w-full border-2 border-gray-200 rounded-lg p-3 mb-4 bg-gray-50 focus:border-blue-500 focus:outline-none" %>
     <% end %>
+
 
     <table class="table-auto">
         <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px] font-bold">

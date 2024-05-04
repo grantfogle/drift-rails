@@ -4,6 +4,7 @@
             <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
                 <td class="px-4 text-center text-yellow-500">
                     <% if Current.user && Current.user.favorite_flows.include?(flow) %>
+                    <!-- IS IT FAVORITED--> 
                         <%= button_to flow_favorites_path(flow), method: :delete, class: "your-button-class", title: "Unfavorite" do %>
                             <i class="fas fa-star fa-xl"></i>
                         <% end %>
