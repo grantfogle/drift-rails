@@ -1,5 +1,5 @@
 <section class="container mx-auto flex flex-col py-10">
-    <%= form_tag '#', method: :get do %>
+    <%= form_tag '#', method: :post, local: false do %>
         <%= text_field_tag :query,
             params[:query],
             data: { reflex: "input->FlowSearchReflex#search" },
@@ -16,7 +16,7 @@
             <td class="px-4">Location</td>
             <td class="px-4">Flow (cfs)</td>
         </thead>
-        <%= render partial: "flows", locals: {flows: @flows} %>
+        <%= render partial: "flows", locals: {flows: @flows, user_id: Current.user.id} %>
     </table>
     <hr>
     <%= link_to "Add Stream Flow", new_flow_path, class: "mt-[40px] w-[200px] text-center bg-blue-500 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded" %>

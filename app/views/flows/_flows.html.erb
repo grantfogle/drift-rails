@@ -3,13 +3,12 @@
         <% unless flow.archived? %>
             <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
                 <td class="px-4 text-center text-yellow-500">
-                    <% if Current.user && flow.favorited == 1 %>
-                    <!-- IS IT FAVORITED--> 
-                        <%= button_to flow_favorites_path(flow), method: :delete, class: "your-button-class", title: "Unfavorite" do %>
+                    <% if user_id.present? && flow.favorited == 1 %>
+                        <%= button_to flow_favorites_path(flow), method: :delete, title: "Unfavorite" do %>
                             <i class="fas fa-star fa-xl"></i>
                         <% end %>
                     <% else %>    
-                        <%= button_to flow_favorites_path(flow), method: :post, class: "your-button-class", title: "Favorite" do %>
+                        <%= button_to flow_favorites_path(flow), method: :post, title: "Favorite" do %>
                             <i class="fa-regular fa-star fa-xl"></i>
                         <% end %>
                     <% end %>
