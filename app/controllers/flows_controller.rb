@@ -6,8 +6,9 @@ class FlowsController < ApplicationController
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
     end
+    @flows = FlowService.new(params[:query]).get_flows
 
-    @flows ||= Flow.limit(20)
+    # @flows ||= Flow.limit(20)
   end
 
   def show
