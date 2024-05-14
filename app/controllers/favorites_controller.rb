@@ -4,9 +4,14 @@ class FavoritesController < ApplicationController
     def index
       #def index
       if Current.user
-          @flows = Current.user.favorite_flows # This retrieves all flows associated with the user through favorites.
+          # @flows = Current.user.favorite_flows # This retrieves all flows associated with the user through favorites.
+          # @flows = User.favorite_flows
+          @flows = FavoriteService.new(Current.user).get_favorites
+          # get favorite.flows
+          # @flows = FlowService.new(params[:query]).get_flows
           Rails.logger.debug "Favorite Flows Count: #{Current.user.favorite_flows.count}"
       end
+      # can i redirect otherwise?
     end
 
     def create

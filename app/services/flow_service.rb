@@ -18,4 +18,10 @@ class FlowService < ApplicationService
         Flow.where("name LIKE ?", "%#{@query}%").limit(10)
       end
     end
+
+    def get_favorite_flows
+        if @user.present?
+            @user.favorite_flows
+        end
+    end
   end
