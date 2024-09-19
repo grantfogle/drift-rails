@@ -1,0 +1,37 @@
+/* Add this to your CSS file */
+#hamburger {
+    cursor: pointer;
+}
+
+/* Hide the mobile menu by default */
+#mobile-menu {
+    display: none;
+}
+nav {
+    position: relative;
+}
+
+/* For the checkbox hack */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Show the mobile menu when the checkbox is checked */
+input[type="checkbox"]:checked + #mobile-menu {
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: 0;
+}
+
+/* Style the hamburger icon */
+@media (max-width: 768px) {
+    #hamburger {
+        display: block;
+    }
+
+    /* Hide the desktop menu */
+    .hidden.lg\:flex {
+        display: none;
+    }
+}
