@@ -12,4 +12,10 @@ class FavoriteService < ApplicationService
         end
       end
     end
+
+    def add_favorite
+    end
+
+    def remove_favorite
+    end
   end

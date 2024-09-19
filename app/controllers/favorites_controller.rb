@@ -2,16 +2,11 @@ class FavoritesController < ApplicationController
     before_action :require_user
 
     def index
-      #def index
       if Current.user
-          # @flows = Current.user.favorite_flows # This retrieves all flows associated with the user through favorites.
-          # @flows = User.favorite_flows
           @flows = FavoriteService.new(Current.user).get_favorites
-          # get favorite.flows
-          # @flows = FlowService.new(params[:query]).get_flows
-          Rails.logger.debug "Favorite Flows Count: #{Current.user.favorite_flows.count}"
+      else
+        redirect_to sign_in_path, alert: 'You must be logged in to view favorites.'
       end
-      # can i redirect otherwise?
     end
 
     def create
@@ -23,7 +18,7 @@ class FavoritesController < ApplicationController
           redirect_to flow_path, alert: 'Already a favorite.'
         else
           favorite = Current.user.favorites.build(flow: flow)
-          # check if the flow is already a favorite  
+          # check if the flow is already a favorite
           if favorite.save
             redirect_to favorites_path, notice: 'Added to favorites.'
           else
