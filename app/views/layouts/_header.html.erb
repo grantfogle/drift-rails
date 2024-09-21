@@ -1,5 +1,5 @@
-<header>
-    <nav class="h-[60px] bg-white text-white border-gray-200 px-4 md:px-6 py-2.5 dark:bg-blue-500 flex flex-row items-center justify-between">
+<header class="bg-blue-500 w-full">
+    <nav class="h-[60px] mx-auto px-4 md:container text-white flex items-center justify-between">
         <div>
             <a href="#"><span><i class="fa-solid fa-water"></i> DRIFT</span></a>
         </div>
@@ -33,29 +33,41 @@
             <i id="menu-toggle-x" class="fa-solid fa-x text-white text-xl"></i>
         </label>
 
-        <div class="mobile-menu text-black bg-white border-gray-200">
+        <div class="mobile-menu w-full text-gray-900 bg-white border-gray-200">
             <ul class="flex flex-col items-center px-4 py-8 gap-2">
                 <% if Current.user %>
                     <li class="w-full">
-                        <%= link_to 'Favorites', favorites_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" %>
+                    <%= link_to favorites_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" do %>
+                        <i class="fa-solid fa-heart mr-2 text-red-500"></i> Favorites
+                    <% end %>
                     </li>
                     <li class="w-full">
-                        <%= link_to 'Maps', maps_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" %>
+                    <%= link_to maps_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" do %>
+                        <i class="fa-solid fa-map text-green-500 mr-2"></i> Maps
+                    <% end %>
                     </li>
                     <li class="w-full">
-                        <%= link_to 'Explore', flows_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" %>
+                    <%= link_to flows_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" do %>
+                        <i class="fa-solid fa-compass mr-2 text-blue-500"></i> Explore
+                    <% end %>
                     </li>
                     <li class="w-full">
-                        <%= link_to "Log out", logout_path, method: :delete, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" %>
+                    <%= link_to logout_path, method: :delete, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" do %>
+                        <i class="fa-solid fa-sign-out-alt mr-2 text-gray-900"></i> Log out
+                    <% end %>
                     </li>
-                <% else %>
-                    <li class="w-full">
-                        <a class="block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" href="/sign_in">Log in</a>
-                    </li>
-                    <li class="w-full">
-                        <a class="block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" href="/sign_up">Sign Up</a>
-                    </li>
-                <% end %>
+            <% else %>
+                <li class="w-full">
+                    <a class="block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" href="/sign_in">
+                        <i class="fa-solid fa-sign-in-alt mr-2"></i> Log in
+                    </a>
+                </li>
+                <li class="w-full">
+                    <a class="block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" href="/sign_up">
+                        <i class="fa-solid fa-user-plus mr-2"></i> Sign Up
+                    </a>
+                </li>
+            <% end %>            
             </ul>
         </div>
     </nav>
