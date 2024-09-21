@@ -1,11 +1,11 @@
 <header>
-    <nav class="h-[60px] bg-white text-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-blue-500 flex flex-row items-center justify-between">
+    <nav class="h-[60px] bg-white text-white border-gray-200 px-4 md:px-6 py-2.5 dark:bg-blue-500 flex flex-row items-center justify-between">
         <div>
             <a href="#"><span><i class="fa-solid fa-water"></i> DRIFT</span></a>
         </div>
         
-        <div class="hidden lg:flex">
-            <ul class="flex flex-row items-center">
+        <div class="hidden md:flex desktop-menu">
+            <ul class="flex flex-row items-center ">
                 <% if Current.user %>
                     <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent">
                         <%= link_to 'Favorites', favorites_path %>
@@ -20,39 +20,43 @@
                         <%= link_to "Log out", logout_path, method: :delete, class: "px-2 py-2 hover:bg-orange-400 rounded border border-transparent" %>
                     </li>
                 <% else %>
-                    <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="/sign_in">Log in</a></li>
                     <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="/sign_up">Sign Up</a></li>
+                    <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="/sign_in">Log in</a></li>
                 <% end %>
             </ul>
         </div>
 
         <!-- Checkbox and Hamburger Menu Icon -->
         <input type="checkbox" id="menu-toggle" class="hidden">
-        <label for="menu-toggle" class="lg:hidden cursor-pointer">
-            <i class="fa-solid fa-bars text-white text-xl"></i>
+        <label for="menu-toggle" class="md:hidden cursor-pointer">
+            <i id="menu-toggle-bars" class="fa-solid fa-bars text-white text-xl"></i>
+            <i id="menu-toggle-x" class="fa-solid fa-x text-white text-xl"></i>
         </label>
 
-    <!-- Move mobile menu to be a sibling of the nav -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-white border-gray-200">
-        <ul class="flex flex-col items-center">
-            <% if Current.user %>
-                <li class="px-4 py-2 hover:bg-orange-400 rounded border border-transparent">
-                    <%= link_to 'Favorites', favorites_path %>
-                </li>
-                <li class="px-4 py-2 hover:bg-orange-400 rounded border border-transparent">
-                    <%= link_to 'Maps', maps_path %>
-                </li>
-                <li class="px-4 py-2 hover:bg-orange-400 rounded border border-transparent">
-                    <%= link_to 'Explore', flows_path %>
-                </li>
-                <li class="px-4 py-2 hover:bg-orange-400 rounded border border-transparent">
-                    <%= link_to "Log out", logout_path, method: :delete %>
-                </li>
-            <% else %>
-                <li class="px-4 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="/sign_in">Log in</a></li>
-                <li class="px-4 py-2 hover:bg-orange-400 rounded border border-transparent"><a href="/sign_up">Sign Up</a></li>
-            <% end %>
-        </ul>
-    </div>
+        <div class="mobile-menu text-black bg-white border-gray-200">
+            <ul class="flex flex-col items-center px-4 py-8 gap-2">
+                <% if Current.user %>
+                    <li class="w-full">
+                        <%= link_to 'Favorites', favorites_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" %>
+                    </li>
+                    <li class="w-full">
+                        <%= link_to 'Maps', maps_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" %>
+                    </li>
+                    <li class="w-full">
+                        <%= link_to 'Explore', flows_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" %>
+                    </li>
+                    <li class="w-full">
+                        <%= link_to "Log out", logout_path, method: :delete, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" %>
+                    </li>
+                <% else %>
+                    <li class="w-full">
+                        <a class="block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" href="/sign_in">Log in</a>
+                    </li>
+                    <li class="w-full">
+                        <a class="block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" href="/sign_up">Sign Up</a>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
     </nav>
 </header>
