@@ -1,0 +1,60 @@
+nav { position: relative; }
+
+/* For the checkbox hack */
+input[type="checkbox"] {
+    display: none;
+}
+
+.mobile-menu { display: none; }
+/* Show the mobile menu when the checkbox is checked */
+.test-class { display: none; }
+
+#menu-toggle {
+    & + label {
+        #menu-toggle-bars {
+            display: block;
+        }
+        #menu-toggle-x {
+            display: none;
+        }
+    }
+
+    /* When the checkbox is checked */
+    &:checked {
+        & + label {
+            #menu-toggle-bars {
+                display: none;
+            }
+            #menu-toggle-x {
+                display: block;
+            }
+        }
+
+        &~.mobile-menu {
+            display: block;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            z-index: 100;
+    
+            width: 100%;
+            height: calc(100vh - 60px);
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    #menu-toggle {
+        &:checked {
+            &~.mobile-menu {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .desktop-menu {
+        display: none;
+    }
+}

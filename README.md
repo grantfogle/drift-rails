@@ -22,3 +22,30 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## Features
+
+### MVP
+#### Real time river flows and watershed data (keep very basic literally just rivers, and current flow status)
+
+#### Basic Map View:
+- Public/Private boundaries
+- Search map view
+
+#### Basic Sign Up page
+
+### Future Implementations
+
+#### Real Time River flows
+- Alerts for: warm water, ice out, invasive species
+- Local Trout Unlimited and Other Conservation Chapters
+- Rules and Regulations
+- Current Rating
+
+#### Real Time Watershed status
+- Map view of watersheds (similar to hunt gmus, with color coded data)
+- Card for Watershed
+- Searchable in explore
+- Link to Tributaries
+
