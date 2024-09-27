@@ -38,6 +38,8 @@ flows = [
   { name: 'Zephyr Creek', stream: 'Zephyr River', location: 'Maryland', state: 'MD', flow: 295, usgs_id: '102600', status: 'public' }
 ]
 
+# add updated seed data
+
 flows.each do |flow_data|
     Flow.create!(flow_data)
 end
