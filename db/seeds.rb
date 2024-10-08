@@ -9,6 +9,9 @@ Favorite.destroy_all
 Report.destroy_all
 Flow.destroy_all
 
+# watersheds
+# streams
+
 flows = [
   { name: 'Eagle Creek', stream: 'Eagle River', location: 'Colorado', state: 'CO', flow: 120, usgs_id: '100100', status: 'public' },
   { name: 'Bear River', stream: 'Bear River', location: 'Utah', state: 'UT', flow: 250, usgs_id: '100200', status: 'public' },
