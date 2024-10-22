@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+# what stream data do i want to save...?
+# ability to save flow
+# current flow, current status [ 7 day, 30 day status]
+# alerts [ high water, low water, frozen, hot water/hoot owl, low vis]
+# basic editing view
+# add flow alerts that message phone [ bump in flows, etc... ]
+
+# TODO: Need to add a 0 in front of the usgs_id's
+
 STREAMS = [
   {
     state: 'CO',
