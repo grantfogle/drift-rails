@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_19_043406) do
+ActiveRecord::Schema.define(version: 2024_10_22_232619) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 2024_02_19_043406) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.index ["flow_id"], name: "index_reports_on_flow_id"
+  end
+
+  create_table "streams", force: :cascade do |t|
+    t.string "state"
+    t.string "usgs_id"
+    t.string "watershed"
+    t.string "watershed_id"
+    t.string "usgs_stream_name"
+    t.string "stream_name"
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

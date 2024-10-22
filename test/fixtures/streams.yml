@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: MyString
+  usgs_id: MyString
+  watershed: MyString
+  watershed_id: MyString
+  usgs_stream_name: MyString
+  stream_name: MyString
+  location: MyString
+
+two:
+  state: MyString
+  usgs_id: MyString
+  watershed: MyString
+  watershed_id: MyString
+  usgs_stream_name: MyString
+  stream_name: MyString
+  location: MyString

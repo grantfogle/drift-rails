@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'maps', to: 'maps#show'
 
+  get "streams", to: "streams#index"
+
   resources :favorites, only: [:index]
   
   resources :flows do

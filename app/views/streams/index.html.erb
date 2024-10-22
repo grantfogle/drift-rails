@@ -1,0 +1,14 @@
+<div>
+    <% @streams.each do |stream| %>
+        <div>
+        <p><strong>State:</strong> <%= stream.state %></p>
+        <p><strong>USGS ID:</strong> <%= stream.usgs_id %></p>
+        <p><strong>Watershed:</strong> <%= stream.watershed %></p>
+        <p><strong>Watershed ID:</strong> <%= stream.watershed_id %></p>
+        <p><strong>USGS Stream Name:</strong> <%= stream.usgs_stream_name %></p>
+        <p><strong>Stream Name:</strong> <%= stream.stream_name %></p>
+        <p><strong>Location:</strong> <%= stream.location %></p>
+        </div>
+        <hr>
+    <% end %>
+</div>

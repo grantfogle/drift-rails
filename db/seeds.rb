@@ -5,9 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require_relative './seed_data/streams'
+
 Favorite.destroy_all
 Report.destroy_all
 Flow.destroy_all
+Stream.destroy_all
 
 # watersheds
 # streams
@@ -47,4 +50,8 @@ flows.each do |flow_data|
     Flow.create!(flow_data)
 end
   
+STREAMS.each do |stream_data|
+  Stream.create!(stream_data)
+end
+
 puts "Created #{Flow.count} flows."
