@@ -1,3 +1,7 @@
+# filters
+# [high water, low water, frozen, hot water]
+# 
+
 class StreamsService
     def initialize(filters = {})
         @filters = filters
