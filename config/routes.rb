@@ -30,5 +30,5 @@ end
 # authentication UserModel
 # how to get live flows from website... scraping and getting once per day
 ## allow users to save favorites
-## aller users to search by location
+## allow users to search by location
 ## currently at updating an article

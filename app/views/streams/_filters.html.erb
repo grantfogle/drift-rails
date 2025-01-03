@@ -1,5 +1,24 @@
-# if user is signed in
-<div class="flex justify-center">
-    <button class="border-b-4 border-yellow-500 px-4 py-2 rounded text-sm">All</button>
-    <button>Favorites</button>
+<% if current_user %>
+    <div class="flex justify-center">
+        <button class="border-b-4 border-yellow-500 px-4 py-2 rounded text-sm">All</button>
+        <button>Favorites</button>
+    </div>
+<% end %>
+
+
+<div class="p-4 bg-gray-100 md:bg-white">
+<!-- basic toggle for filter view, header: filters, for small screens -->
+<%= form_with(url: flows_path, method: "get", local: true, html: { autocomplete: "off" }) do |form| %>
+    <div class="relative">
+        <%= form.text_field :query,
+            value: params[:query],
+            data: { reflex: "input->FlowSearchReflex#map_search" },
+            placeholder: "Search",
+            class: "w-full text-lg pl-8 pr-2 py-2 border-2 border-gray-200 rounded-lg bg-gray-50 focus:outline-none"
+            %>
+        <i class="fa-solid fa-search text-lg absolute left-2 top-1/2 transform -translate-y-1/2"></i>
+    </div>
+<% end %>
+
+<!-- FILTERS ( STATES, WATERSHEDS, FLOW STATUS) -->
 </div>
