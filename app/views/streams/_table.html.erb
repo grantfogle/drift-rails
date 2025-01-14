@@ -3,7 +3,6 @@
     <thead class="bg-gray-50 border-b-2 border-gray-200 h-[60px] font-bold sticky top-0">
         <td class="px-4 text-center">Favorite</td>
         <td class="px-4">Stream</td>
-        <td class="px-4">Location</td>
         <td class="px-4">Watershed</td>
         <td class="px-4">State</td>
         <td class="px-4">Flow (cfs)</td>
@@ -11,15 +10,14 @@
 
     <tbody id="streams-table">
         <% streams.each do |stream| %>
-            <tr class="odd:bg-white even:bg-slate-50 h-[60px]">
-                <td class="px-4 text-center text-yellow-500">
+            <tr class="odd:bg-white even:bg-slate-50">
+                <td class="px-4 py-4 text-center text-yellow-500">
                     <i class="fa-regular fa-star fa-xl text-yellow-500"></i>
                 </td>
-                <td class="px-4 align-middle"><%= stream.stream_name %></td>
-                <td class="px-4 align-middle"><%= stream.location %></td>
-                <td class="px-4 align-middle"><%= stream.watershed %></td>
-                <td class="px-4 align-middle"><%= stream.state %></td>
-                <td class="px-4 align-right">126</td>
+                <td class="px-4 py-4 align-middle flex flex-col"><span class="font-semibold text-lg"><%= stream.stream_name %></span> <span class="text-sm"><%= stream.location %></span></td>
+                <td class="px-4 py-4 align-middle text-lg"><%= stream.watershed %></td>
+                <td class="px-4 py-4 align-middle text-lg"><%= stream.state %></td>
+                <td class="px-4 py-4 align-right text-lg">126</td>
             </tr>
         <% end %>
     </tbody>
