@@ -1,30 +1,20 @@
 <div class="container mx-auto max-w-[800px]">
-    <%= render partial: "filters", locals: { current_user: @current_user } %>
     <div class="flex justify-between items-center mx-4">
-        <h1 class="font-semibold text-2xl">Streams</h1>
-        <h2 class="font-semibold md:text-xl hidden md:block">
-            Current Flow (CFS)
-        </h2>
-        <h2 class="font-semibold md:text-xl block md:hidden">
-            CFS
-        </h2>
+        <h1 class="font-semibold text-3xl">Stream Flows</h1>
     </div>
 
-    <% @streams.each do |stream| %>
-        <div class="py-2 px-4 my-4 mx-4 border rounded flex justify-between items-center odd:bg-white even:bg-gray-50">
-            <span class="flex items-center">
-                <%= button_to flow_favorites_path(stream), method: :post, class: "your-button-class", title: "Favorite" do %>
-                    <i class="fa-regular fa-star fa-xl text-yellow-500"></i>
-                <% end %>
-                <span class="flex flex-col ml-2">
-                    <span class="text-md font-semibold">
-                        <%= stream.stream_name %>
-                        <%= stream.location %>
-                    </span>
-                    <span class="text-sm"><%= stream.watershed %>, <%= stream.state %></span>
-                </span>
-            </span>
-            <span>126</span>
-        </div>
-    <% end %>
+    <%= render partial: "filters", locals: { current_user: @current_user } %>
+
+
+    <div class="small-screen-view md:hidden">
+        <% @streams.each do |stream| %>
+            <%= render partial: "card", locals: { stream: stream } %>
+        <% end %>
+    </div>
+
+    <div class="hidden md:block">
+        <%= render partial: "table", locals: { streams: @streams } %>
+    </div>
+    <!-- TODO: dropdown should show lots of data like stream flows -->
+    <!-- TODO: add pagination -->
 </div>
