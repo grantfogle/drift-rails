@@ -14,11 +14,11 @@ class StreamsService
     def search_streams(query)
         return Stream.limit(10) if query.blank?
         
-        Stream.where("stream_name ILIKE :query OR 
-                      watershed ILIKE :query OR 
-                      state ILIKE :query", 
+        Stream.where("stream_name LIKE :query OR 
+                      watershed LIKE :query OR 
+                      state LIKE :query", 
                       query: "%#{query}%")
-              .limit(10)
+              .limit(20)
     end
 
     private

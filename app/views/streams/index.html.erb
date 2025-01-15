@@ -5,14 +5,14 @@
 
     <%= render partial: "filters", locals: { current_user: @current_user } %>
 
-    <div class="small-screen-view md:hidden">
-        <%= render partial: "cards", locals: { streams: @streams } %>
-    </div>
+    <section class="small-screen-view md:hidden" id="streams-cards">
+        <%= render "cards", streams: @streams %>
+    </section>
 
-    <div class="hidden md:block">
-        <%= render partial: "table", locals: { streams: @streams } %>
-    </div>
-    
+    <section class="hidden md:block" id="streams-table">
+        <%= render "table", streams: @streams  %>
+    </section>
+
     <!-- TODO: dropdown should show lots of data like stream flows -->
     <!-- TODO: add pagination -->
 </div>
