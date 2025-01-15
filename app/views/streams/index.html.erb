@@ -1,20 +1,18 @@
-<div class="container mx-auto max-w-[1400px]">
+<div class="container mx-auto max-w-[1200px] py-4 md:py-8 ">
     <div class="flex justify-between items-center mx-4">
         <h1 class="font-semibold text-3xl">Stream Flows</h1>
     </div>
 
     <%= render partial: "filters", locals: { current_user: @current_user } %>
 
-
     <div class="small-screen-view md:hidden">
-        <% @streams.each do |stream| %>
-            <%= render partial: "card", locals: { stream: stream } %>
-        <% end %>
+        <%= render partial: "cards", locals: { streams: @streams } %>
     </div>
 
     <div class="hidden md:block">
         <%= render partial: "table", locals: { streams: @streams } %>
     </div>
+    
     <!-- TODO: dropdown should show lots of data like stream flows -->
     <!-- TODO: add pagination -->
 </div>

@@ -6,13 +6,13 @@
 <% end %>
 
 
-<div class="p-4 bg-gray-100 md:bg-white">
+<div class="p-4">
 <!-- basic toggle for filter view, header: filters, for small screens -->
 <%= form_with(url: flows_path, method: "get", local: true, html: { autocomplete: "off" }) do |form| %>
     <div class="relative">
         <%= form.text_field :query,
             value: params[:query],
-            data: { reflex: "input->FlowSearchReflex#map_search" },
+            data: { reflex: "input->StreamReflex#search" },
             placeholder: "Search",
             class: "w-full text-lg pl-8 pr-2 py-2 border-2 border-gray-200 rounded-lg bg-gray-50 focus:outline-none"
             %>
