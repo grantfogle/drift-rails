@@ -18,7 +18,7 @@ class StreamsService
                       watershed LIKE :query OR 
                       state LIKE :query", 
                       query: "%#{query}%")
-              .limit(20)
+              .limit(10)
     end
 
     private
