@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ApplicationReflex < StimulusReflex::Reflex
+  before_reflex do
+    # Access user_id from session and find the user
+    Current.user = User.find_by(id: session["user_id"]) if session["user_id"]
+  end
   # Put application-wide Reflex behavior and callbacks in this file.
   #
   # Learn more at: https://docs.stimulusreflex.com/guide/reflex-classes

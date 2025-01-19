@@ -1,0 +1,13 @@
+<!-- pass is favorited, add outer container,  --> 
+
+<% if @current_user %>
+    <% is_favorited = @current_user.favorited_streams.include?(stream) %>
+        <span id="favorite_stream_<%= stream.id %>"
+            class="fa-xl text-yellow-500 hover:text-yellow-700 cursor-pointer transition-all">
+            <i class="<%= is_favorited ? 'fa-solid' : 'fa-regular' %> fa-star" data-reflex="click->StreamReflex#toggle_favorite"></i>
+        </span>
+<% else %>
+    <span class="fa-xl text-gray-300" id="favorite_stream_<%= stream.id %>">
+        <i class="fa-regular fa-star"></i>
+    </span>
+<% end %>

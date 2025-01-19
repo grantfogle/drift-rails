@@ -1,15 +1,14 @@
-<div class="">
-
+<div class="h-full w-full">
 
     <div class="container mx-auto max-w-[1200px] py-4 md:py-8 ">
         <%= render partial: "filters", locals: { current_user: @current_user } %>
 
         <section class="small-screen-view md:hidden" id="streams-cards">
-            <%= render "cards", streams: @streams %>
+            <%= render "cards", streams: @streams, current_user: @current_user %>
         </section>
 
         <section class="hidden md:block" id="streams-table">
-            <%= render "table", streams: @streams  %>
+            <%= render "table", streams: @streams, current_user: @current_user %>
         </section>
     </div>
     <!-- TODO: dropdown should show lots of data like stream flows -->
