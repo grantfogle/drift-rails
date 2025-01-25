@@ -1,7 +1,11 @@
     <% streams.each do |stream| %>
         <div class="py-4 px-4 my-4 mx-4 border rounded-xl flex justify-between items-center odd:bg-white even:bg-gray-50">
             <span class="flex items-center">
-                <i class="fa-regular fa-star fa-xl text-yellow-500"></i>
+            
+            <%= render "components/buttons/favorite", 
+                stream: stream,
+                current_user: current_user, 
+                is_favorited: current_user&.favorited_streams&.include?(stream) %>
             
             <span class="flex flex-col ml-2">
                 <span class="text-md font-semibold">

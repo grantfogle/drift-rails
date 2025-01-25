@@ -1,6 +1,7 @@
 <div class="h-full w-full">
 
     <div class="container mx-auto max-w-[1200px] py-4 md:py-8 ">
+        <!-- What is the correct way to pass locals to partials? -->
         <%= render partial: "filters", locals: { current_user: @current_user } %>
 
         <section class="small-screen-view md:hidden" id="streams-cards">
