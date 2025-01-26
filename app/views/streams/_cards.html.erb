@@ -4,18 +4,18 @@
             
             <span data-id="favorite_stream_<%= stream.id %>_card">
                 <%= render "components/buttons/favorite", 
-               stream: stream,
+                stream: stream,
                 current_user: current_user, 
                 is_favorited: current_user&.favorited_streams&.include?(stream) %>
             </span>
-            <span class="flex flex-col ml-2">
+            <span class="flex flex-col mx-4">
                 <span class="text-md font-semibold">
-                    <%= stream.stream_name %>
-                    <%= stream.location %>
+                    <%= stream.stream_name %>    
                 </span>
-                <span class="text-sm"><%= stream.watershed %>, <%= stream.state %></span>
+                
+                <span class="text-sm"><%= stream.location %>, <%= stream.state %></span>
             </span>
         </span>
-        <span>126 cfs</span>
+        <span class="whitespace-nowrap">126 cfs</span>
     </div>
 <% end %>

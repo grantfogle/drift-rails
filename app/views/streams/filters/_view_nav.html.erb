@@ -1,0 +1,8 @@
+<%= button_tag "All Streams",
+    class: "px-4 py-2 #{@view_type == 'all' ? 'border-b-4 border-yellow-500 font-semibold' : 'hover:bg-gray-100 hover:font-semibold rounded-md'}",
+    data: { reflex: "click->StreamReflex#switch_view", view: "all" }
+%>
+<%= button_tag "Favorites",
+    class: "px-4 py-2 #{@view_type == 'favorites' ? 'border-b-4 border-yellow-500' : 'hover:bg-gray-100 hover:font-semibold rounded-md'}",
+    data: {  reflex: "click->StreamReflex#switch_view", view: "favorites" }
+%>
