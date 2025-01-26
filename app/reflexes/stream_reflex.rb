@@ -2,9 +2,6 @@
 
 # StreamReflex
 class StreamReflex < ApplicationReflex
-    include ActionView::Helpers::TagHelper
-    include ActionView::RecordIdentifier
-
     def search
         query = element.value
         service = StreamsService.new
@@ -18,14 +15,15 @@ class StreamReflex < ApplicationReflex
     def switch_view
         @view_type = element.dataset.view
         service = StreamsService.new
-        
         @streams =
             case @view_type
-                when "favorites"
-                    Current.user.favorite_streams
-                else
-                service.search_streams(params[:query])
+            when "favorites"
+                service.fetch_favorited_streams
+            else
+                service.call
             end
+        
+        morph '#stream-nav', render(partial: 'streams/filters/view_nav', locals: { view_type: @view_type })
         morph_stream_views(@streams)
     end
 
@@ -67,7 +65,7 @@ class StreamReflex < ApplicationReflex
     private
 
     def morph_stream_views(streams)
-        morph "#streams-table", render_to_string(partial: "streams/table", locals: { streams: streams })
-        morph "#streams-cards", render_to_string(partial: "streams/cards", locals: { streams: streams })
+        morph '#streams-table', render(partial: 'streams/table', locals: { streams: @streams, current_user: Current.user })
+        morph '#streams-cards', render(partial: 'streams/cards', locals: { streams: @streams, current_user: Current.user })
     end
 end

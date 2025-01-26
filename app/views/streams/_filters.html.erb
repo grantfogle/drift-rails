@@ -2,8 +2,8 @@
 <section>
     <!-- On small screen center the buttons -->
     <% if current_user %>
-        <div class="flex align-start justify-center md:justify-start space-x-2 md:px-4">
-            <%= render partial: "streams/filters/view_nav", locals: { selected_view: 'all' } %>
+        <div id="stream-nav" class="flex h-[44px] justify-center md:justify-start space-x-2 md:px-4">
+            <%= render partial: "streams/filters/view_nav", locals: { view_type: 'all' } %>
         </div>
     <% end %>
 

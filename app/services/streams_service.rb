@@ -21,6 +21,10 @@ class StreamsService
               .limit(10)
     end
 
+    def fetch_favorited_streams
+        Current.user.favorited_streams
+    end
+
     private
 
     def fetch_streams
