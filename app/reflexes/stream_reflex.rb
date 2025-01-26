@@ -2,25 +2,23 @@
 
 # StreamReflex
 class StreamReflex < ApplicationReflex
+    before_reflex :set_service
+
     def search
         query = element.value
-        service = StreamsService.new
-        @streams = service.search_streams(query)
+        @streams = @streams_service.search_streams(query)
 
-        # make reusable...?
-        morph '#streams-table', render(partial: 'streams/table', locals: { streams: @streams, current_user: Current.user })
-        morph '#streams-cards', render(partial: 'streams/cards', locals: { streams: @streams, current_user: Current.user })
+        morph_stream_views(@streams)
     end
 
     def switch_view
         @view_type = element.dataset.view
-        service = StreamsService.new
         @streams =
             case @view_type
             when "favorites"
-                service.fetch_favorited_streams
+                @streams_service.fetch_favorited_streams
             else
-                service.call
+                @streams_service.call
             end
         
         morph '#stream-nav', render(partial: 'streams/filters/view_nav', locals: { view_type: @view_type })
@@ -34,6 +32,7 @@ class StreamReflex < ApplicationReflex
         stream = Stream.find(stream_id)
         
         # Use a transaction to ensure data consistency
+        # pull this to a private method
         ActiveRecord::Base.transaction do
             favorite = Current.user.favorite_streams.find_by(stream: stream)
             
@@ -64,8 +63,14 @@ class StreamReflex < ApplicationReflex
 
     private
 
-    def morph_stream_views(streams)
-        morph '#streams-table', render(partial: 'streams/table', locals: { streams: @streams, current_user: Current.user })
-        morph '#streams-cards', render(partial: 'streams/cards', locals: { streams: @streams, current_user: Current.user })
+    def set_service
+        @streams_service = StreamsService.new
     end
+
+    def morph_stream_views(streams)
+        morph '#streams-table', render(partial: 'streams/table', locals: { streams: streams, current_user: Current.user })
+        morph '#streams-cards', render(partial: 'streams/cards', locals: { streams: streams, current_user: Current.user })
+    end
+
+    # def toggle_user_favorite(stream)
 end
