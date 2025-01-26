@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'maps', to: 'maps#show'
 
+  get "streams", to: "streams#index"
+
   resources :favorites, only: [:index]
   
   resources :flows do
@@ -28,5 +30,5 @@ end
 # authentication UserModel
 # how to get live flows from website... scraping and getting once per day
 ## allow users to save favorites
-## aller users to search by location
+## allow users to search by location
 ## currently at updating an article

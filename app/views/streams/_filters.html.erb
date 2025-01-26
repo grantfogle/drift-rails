@@ -1,0 +1,26 @@
+
+<section>
+    <!-- On small screen center the buttons -->
+    <% if current_user %>
+        <div id="stream-nav" class="flex h-[44px] justify-center md:justify-start space-x-2 md:px-4">
+            <%= render partial: "streams/filters/view_nav", locals: { view_type: 'all' } %>
+        </div>
+    <% end %>
+
+    <div class="p-4">
+        <div class="relative">
+            <%= text_field_tag :query,
+                params[:query],
+            data: { 
+                reflex: "input->StreamReflex#search",
+                reflex_dataset: "typed"
+            },
+            placeholder: "Search",
+                class: "w-full text-lg pl-8 pr-2 py-2 border-2 border-gray-200 rounded-lg bg-gray-50 focus:outline-none"
+            %>
+            <i class="fa-solid fa-search text-lg absolute left-2 top-1/2 transform -translate-y-1/2"></i>
+        </div>
+
+        <!-- FILTERS ( STATES, WATERSHEDS, FLOW STATUS) -->
+    </div>
+</section>
