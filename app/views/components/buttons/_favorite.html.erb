@@ -1,11 +1,11 @@
 <!-- pass is favorited, add outer container,  --> 
 
 <% if current_user %>
-    <% is_favorited %>
-        <span id="favorite_stream_<%= stream.id %>"
-            class="fa-xl text-yellow-500 hover:text-yellow-700 cursor-pointer transition-all">
-            <i class="<%= is_favorited ? 'fa-solid' : 'fa-regular' %> fa-star" data-reflex="click->StreamReflex#toggle_favorite"></i>
-        </span>
+    <span class="fa-xl text-yellow-500 hover:text-yellow-700 cursor-pointer transition-all">
+        <i class="<%= is_favorited ? 'fa-solid' : 'fa-regular' %> fa-star" 
+            data-reflex="click->StreamReflex#toggle_favorite"
+            data-stream-id="<%= stream.id %>"></i>
+    </span>
 <% else %>
     <%= link_to sign_in_path, class: "fa-xl text-gray-300 hover:text-gray-400 transition-all" do %>
         <span id="favorite_stream_<%= stream.id %>">

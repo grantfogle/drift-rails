@@ -11,8 +11,8 @@ class StreamReflex < ApplicationReflex
         @streams = service.search_streams(query)
 
         # make reusable...?
-        morph '#streams-table', render(partial: 'streams/table', locals: { streams: @streams })
-        morph '#streams-cards', render(partial: 'streams/cards', locals: { streams: @streams })
+        morph '#streams-table', render(partial: 'streams/table', locals: { streams: @streams, current_user: Current.user })
+        morph '#streams-cards', render(partial: 'streams/cards', locals: { streams: @streams, current_user: Current.user })
     end
 
     def switch_view
@@ -34,24 +34,34 @@ class StreamReflex < ApplicationReflex
 
         stream_id = element.dataset[:stream_id]
         stream = Stream.find(stream_id)
-
-        Rails.logger.info("Current user: #{Current.user.inspect}")
-
-        if element.dataset[:favorited] == "true"
-            Current.user.favorite_streams.find_by(stream: stream)&.destroy
-        else
-            Current.user.favorite_streams.create(stream: stream)
+        
+        # Use a transaction to ensure data consistency
+        ActiveRecord::Base.transaction do
+            favorite = Current.user.favorite_streams.find_by(stream: stream)
+            
+            if favorite
+                favorite.destroy
+            else
+                Current.user.favorite_streams.create!(stream: stream)
+            end
+            
+            Current.user.reload
         end
 
-        morph "##{dom_id(stream)}_favorite" do
-            is_favorited = Current.user.favorite_streams.include?(stream)
-            tag.i class: "#{is_favorited ? 'fa-solid' : 'fa-regular'} fa-star fa-xl text-yellow-500 hover:text-yellow-700 cursor-pointer transition-all",
-                data: {
-                    reflex: "click->StreamReflex#toggle_favorite",
-                    stream_id: stream.id,
-                    favorited: is_favorited
-                }
-        end
+        # Ensure we're using the same state check everywhere
+        is_favorited = Current.user.favorited_streams.include?(stream)
+        
+        morph "[data-id='favorite_stream_#{stream.id}_row']", render(partial: 'components/buttons/favorite', locals: {
+            stream: stream,
+            current_user: Current.user,
+            is_favorited: is_favorited
+        })
+
+        morph "[data-id='favorite_stream_#{stream.id}_card']", render(partial: 'components/buttons/favorite', locals: {
+            stream: stream,
+            current_user: Current.user,
+            is_favorited: is_favorited
+        })
     end
 
     private
