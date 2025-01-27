@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
   def show
-    @flows = nil
+    @streams = nil
   end
 end

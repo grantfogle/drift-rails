@@ -1,28 +1,19 @@
 Rails.application.routes.draw do
   resource :example, constraints: -> { Rails.env.development? }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "flows#index"
+  root 'streams#index'
 
-  get "sign_up", to: "registrations#new"
-  post "sign_up", to: "registrations#create"
+  get 'sign_up', to: 'registrations#new'
+  post 'sign_up', to: 'registrations#create'
 
-  get "sign_in", to: "sessions#new"
-  post "sign_in", to: "sessions#create"
+  get 'sign_in', to: 'sessions#new'
+  post 'sign_in', to: 'sessions#create'
   
-  delete "logout", to: "sessions#destroy"
+  delete 'logout', to: 'sessions#destroy'
 
   get 'maps', to: 'maps#show'
 
-  get "streams", to: "streams#index"
-
-  resources :favorites, only: [:index]
-  
-  resources :flows do
-    resources :reports
-    resources :favorites, only: [:create]
-
-    delete "favorites", to: "favorites#destroy", on: :member
-  end
+  get 'streams', to: 'streams#index'
 end
 
 

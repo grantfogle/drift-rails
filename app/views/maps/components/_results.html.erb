@@ -1,18 +1,25 @@
 
-<% if !flows.nil? %>
+<% if !streams.nil? %>
     <section class="bg-white p-2 rounded-md shadow-md w-[368px] mt-2">
-        <% if flows.length > 0 %>
-            <% flows.each do |flow| %>
+        <% if streams.length > 0 %>
+            <% streams.each do |stream| %>
                 <div class="p-2 rounded-md hover:bg-gray-100 hover:cursor-pointer"
-                    data-reflex="click->FlowSearchReflex#display_search_popup"
+                    data-reflex="click->MapReflex#display_search_popup"
                     data-reflex-dataset="combined"
-                    data-id="<%= flow.id %>">
+                    data-id="<%= stream.id %>">
                 <!-- search result display_search_popup -->
                     <div class="flex items-center">
                         <i class="text-lg fa-solid fa-water text-blue-600 mr-2"></i>
-                        <p class="text-lg mr-2"><%= flow.name %></p>
-                        <p class="text-sm text-gray-500 mr-2"><%= flow.stream %></p>
-                        <p class="text-sm text-gray-500"><%= flow.location %>, <%= flow.state %></p>
+                        <span class="flex w-full justify-between">
+                        <!-- TODO: Truncate text as opposed to wrapping -->
+                            <span class="text-lg mr-2">
+                                <%= stream.stream_name %>
+                                <span class="text-sm text-gray-500">
+                                    <%= stream.location %>
+                                </span>
+                            </span>
+                            <span class="text-sm text-gray-500"><%= stream.state %></span>
+                        </span>
                     </div>
                 </div>
             <% end %>

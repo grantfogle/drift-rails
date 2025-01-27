@@ -2,19 +2,20 @@
     <div class="flex justify-end text-2xl pb-2">
         <p class="hover:text-blue-500 hover:cursor-pointer">
             <i class="fa-solid fa-xmark"
-                data-reflex="click->FlowSearchReflex#hide_search_popup"
+                data-reflex="click->MapReflex#hide_search_popup"
                 data-reflex-dataset="combined"
-                data-id="<%= flow.id %>"
+                data-id="<%= stream.id %>"
             ></i></p>
     </div>
     <img src="https://www.flyfishingcolorado.net/wp-content/uploads/2020/05/MG_2785JPG-scaled.jpg" alt="Colorado River" class="w-full h-[200px] object-cover mb-4">
     <h2 class="text-lg">
+        <!-- TODO: Import favorite button -->
         <!-- <i class="fa-regular fa-star text-yellow-500 text-xl hover:text-green-500"></i> -->
-        <span class="font-bold"><%= flow.name %></span> <%= flow.stream %>
+        <span class="font-bold"><%= stream.stream_name %></span> <%= stream.location %>
     </h2>
-    <p class="text-lg">Location: <%= flow.location %>, <%= flow.state %></p>
-    <p class="text-lg">Flow: <%= flow.flow %> cfs</p>
-    <%= link_to "View Details", flow, class: "text-blue-600 text-lg no-underline hover:underline mr-2" %></td>
+    <p class="text-lg">Location: <%= stream.watershed %>, <%= stream.state %></p>
+    <p class="text-lg">Flow: 126 cfs</p>
+    <%= link_to "View Details", streams_path, class: "text-blue-600 text-lg no-underline hover:underline mr-2" %></td>
     <!-- Allow users to favorite flows -->
     <!-- Check if user is logged in: then allow user to favorite, and maybe use the outline star-->
     <!-- Check if user has favorited-->
