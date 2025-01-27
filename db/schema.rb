@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_01_18_043235) do
+ActiveRecord::Schema.define(version: 2025_01_27_043359) do
 
   create_table "favorite_streams", force: :cascade do |t|
     t.integer "user_id", null: false
