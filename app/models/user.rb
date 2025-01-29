@@ -4,8 +4,8 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_many :favorites
-    has_many :favorite_flows, through: :favorites, source: :flow
+    # has_many :favorites
+    # has_many :favorite_flows, through: :favorites, source: :flow
 
     has_many :favorite_streams, dependent: :destroy
     has_many :favorited_streams, through: :favorite_streams, source: :stream

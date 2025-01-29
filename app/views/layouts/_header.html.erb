@@ -8,13 +8,10 @@
             <ul class="flex flex-row items-center ">
                 <% if Current.user %>
                     <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent">
-                        <%= link_to 'Favorites', favorites_path %>
-                    </li>
-                    <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent">
                         <%= link_to 'Maps', maps_path %>
                     </li>
                     <li class="px-2 py-2 hover:bg-orange-400 rounded border border-transparent">
-                        <%= link_to 'Explore', flows_path %>
+                        <%= link_to 'Explore', streams_path %>
                     </li>
                     <li>
                         <%= link_to "Log out", logout_path, method: :delete, class: "px-2 py-2 hover:bg-orange-400 rounded border border-transparent" %>
@@ -37,17 +34,12 @@
             <ul class="flex flex-col items-center px-4 py-8 gap-2">
                 <% if Current.user %>
                     <li class="w-full">
-                    <%= link_to favorites_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" do %>
-                        <i class="fa-solid fa-heart mr-2 text-red-500"></i> Favorites
-                    <% end %>
-                    </li>
-                    <li class="w-full">
                     <%= link_to maps_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" do %>
                         <i class="fa-solid fa-map text-green-500 mr-2"></i> Maps
                     <% end %>
                     </li>
                     <li class="w-full">
-                    <%= link_to flows_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" do %>
+                    <%= link_to streams_path, class: "block w-full h-full px-4 py-2 hover:bg-gray-100 rounded border border-transparent" do %>
                         <i class="fa-solid fa-compass mr-2 text-blue-500"></i> Explore
                     <% end %>
                     </li>
