@@ -16,6 +16,6 @@
                 <span class="text-sm"><%= stream.location %>, <%= stream.state %></span>
             </span>
         </span>
-        <span class="whitespace-nowrap">126 cfs</span>
+        <span class="whitespace-nowrap"><td class="px-4 py-4 align-right text-lg"><%= stream.stream_flows.last.flow_rate %> cfs</td></span>
     </div>
 <% end %>

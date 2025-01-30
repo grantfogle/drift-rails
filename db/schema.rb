@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_01_27_043359) do
+ActiveRecord::Schema.define(version: 2025_01_30_015924) do
 
   create_table "favorite_streams", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2025_01_27_043359) do
     t.index ["flow_id"], name: "index_reports_on_flow_id"
   end
 
+  create_table "stream_flows", force: :cascade do |t|
+    t.integer "stream_id", null: false
+    t.integer "flow_rate", null: false
+    t.datetime "measured_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["measured_at"], name: "index_stream_flows_on_measured_at"
+    t.index ["stream_id"], name: "index_stream_flows_on_stream_id"
+  end
+
   create_table "streams", force: :cascade do |t|
     t.string "state"
     t.string "usgs_id"
@@ -78,4 +88,5 @@ ActiveRecord::Schema.define(version: 2025_01_27_043359) do
   add_foreign_key "favorites", "flows"
   add_foreign_key "favorites", "users"
   add_foreign_key "reports", "flows"
+  add_foreign_key "stream_flows", "streams"
 end
