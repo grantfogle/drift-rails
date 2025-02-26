@@ -1,5 +1,6 @@
-import { SOURCES } from "./sources";
-import { LAYERS } from "./layers";
+import { SOURCES } from './sources';
+import { LAYERS } from './layers';
+
 document.addEventListener('DOMContentLoaded', function() {
   mapboxgl.accessToken = window.mapboxAccessToken; // We'll pass this from ERB
 
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
 
-  // ... existing code for map.on('load') and other event listeners ...
+  // 2. add layers and sources
   map.on('load', function () {
     SOURCES.forEach((source) => {
       map.addSource(source.id, source.data);
@@ -21,14 +22,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     LAYERS.forEach((layer) => {
       map.addLayer(layer);
+
+      const checkbox = document.getElementById(`toggle-${layer.id}`);
+
+      if (checkbox) {
+        checkbox.addEventListener('change', (e) => toggleLayer(map, layer.id, e));
+      }
     });
   });
+
+
+  // click events on POI's
+  // show popups
+  // toggle layers
+
+  // ... existing code for map.on('load') and other event listeners ...
 });
 
-
-
-function toggleLayer(e) {
-  var layerId = 'fly-shop-layer';
+// used to toggle layers on map
+// layerId must match the id of the layer in _layers.html.erb partial
+function toggleLayer(map, layerId, e) {
   var visibility = map.getLayoutProperty(layerId, 'visibility');
 
   if (e.target.checked) {
