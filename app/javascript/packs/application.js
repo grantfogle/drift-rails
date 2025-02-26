@@ -10,6 +10,7 @@ import "channels"
 import '@fortawesome/fontawesome-free/js/all';
 import "controllers"
 import "config"
+import "./maps/show"
 
 Rails.start()
 Turbolinks.start()

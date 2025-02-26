@@ -1,0 +1,188 @@
+/*
+<script>
+  mapboxgl.accessToken = 'ENV["MAPBOX_ACCESS_TOKEN"]';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/grantjfogle/cl0enmci8000715mufow03qvr',
+    center: [-105.782, 39.55],
+    zoom: 7
+  });
+
+  map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
+  map.on('load', function () {
+    map.addSource('example-source', {
+        'type': 'geojson',
+        'data': {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-105.782, 39.55]
+            },
+            'properties': {
+                'title': 'Mapbox',
+                'description': 'Washington, D.C.'
+            }
+        }
+    });
+
+    map.addSource('fly-shop-source', {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Roaring Fork Anglers"
+            },
+            "geometry": {
+              "coordinates": [
+                -107.32611,
+                39.530118
+              ],
+              "type": "Point"
+            },
+            "id": "02889400298c9be7e1094d66f5ade1c0"
+            },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Taylor Creek Fly Shops",
+              "phone": "(303) 412-4875"
+            },
+            "geometry": {
+              "coordinates": [
+                -107.032585,
+                39.368378
+              ],
+              "type": "Point"
+            },
+            "id": "0f4a5b184faec0eb420e81d9baf76b87"
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Crystal Fly Shop"
+            },
+            "geometry": {
+              "coordinates": [
+                -107.219934,
+                39.400011
+              ],
+              "type": "Point"
+            },
+            "id": "2c8767e7a7e7e781a6bf1e0f9247589e"
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Frying Pan Anglers",
+              "phone": "(303) 444-9403"
+            },
+            "geometry": {
+              "coordinates": [
+                -107.031126,
+                39.369241
+              ],
+              "type": "Point"
+            },
+            "id": "4f6e5c23ef2ea6a48c2b3e2284af7eaf"
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Aspen Flyfishing Inc"
+            },
+            "geometry": {
+              "coordinates": [
+                -106.820573,
+                39.187637
+              ],
+              "type": "Point"
+            },
+            "id": "7a742d035e5a30f64eb7913e6d144a33"
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Aspen Outfitting Co"
+            },
+            "geometry": {
+              "coordinates": [
+                -106.822432,
+                39.187584
+              ],
+              "type": "Point"
+            },
+            "id": "e5b2ccba770c3bcb8dea7a7ff7937e5a"
+          }
+        ]}
+    });
+
+    map.addLayer({
+      'id': 'example-layer',
+      'type': 'circle',
+      'source': 'example-source',
+      'paint': {
+          'circle-radius': 10,
+          'circle-color': '#007cbf'
+      }
+    });
+
+    map.addLayer({
+      'id': 'fly-shop-layer',
+      'type': 'circle',
+      'source': 'fly-shop-source',
+      'minzoom': 5,
+      'paint': {
+        'circle-radius': 10,
+        'circle-color': '#007cbf'
+      }
+    });
+
+    map.on('mouseenter', 'fly-shop-layer', function() {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+    
+  map.on('mouseleave', 'fly-shop-layer', function() {
+    map.getCanvas().style.cursor = '';
+  });
+
+  map.on('click', 'fly-shop-layer', function(e) {
+  // Access information about the features clicked
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['fly-shop-layer']
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  // Perform actions with the feature, e.g., display a popup
+  // how to style popup?
+  var popup = new mapboxgl.Popup()
+    .setLngLat(feature.geometry.coordinates)
+    .setText('You clicked on ' + feature.properties.name) // Assuming 'name' is a property of the feature
+    .addTo(map);
+  });
+
+});
+
+
+// how do i make this reusable?
+document.getElementById('toggle-fly-shop').addEventListener('change', function(e) {
+  var layerId = 'fly-shop-layer';
+  var visibility = map.getLayoutProperty(layerId, 'visibility');
+
+  if (e.target.checked) {
+    map.setLayoutProperty(layerId, 'visibility', 'visible');
+  } else {
+    map.setLayoutProperty(layerId, 'visibility', 'none');
+  }
+});
+
+
+*/
