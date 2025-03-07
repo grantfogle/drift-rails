@@ -1,4 +1,8 @@
-<section class="mt-2 mb-2" id='map' style='width: 100vw; height: 80vh;'>
+<section 
+  class="mt-2 mb-2"
+  id='map'
+  style='width: 100vw; height: 80vh;'
+  data-mapbox-access-token="<%= ENV["MAPBOX_ACCESS_TOKEN"] %>"
   <div id="tools-overlay" 
        class="absolute top-5 left-5 z-10">
     <%= render 'maps/components/search', locals: {flows: @flows } %>
@@ -11,9 +15,5 @@
     <%= render 'maps/components/layers' %>
   </div>
 </section>
-
-<%= javascript_tag do %>
-  window.mapboxAccessToken = '<%= ENV["MAPBOX_ACCESS_TOKEN"] %>';
-<% end %>
 
 <%= javascript_pack_tag "application" %>

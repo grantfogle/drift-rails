@@ -2,7 +2,8 @@ import { SOURCES } from './sources';
 import { LAYERS } from './layers';
 
 document.addEventListener('DOMContentLoaded', function() {
-  mapboxgl.accessToken = window.mapboxAccessToken; // We'll pass this from ERB
+  const accessToken = document.getElementById('map').getAttribute('data-mapbox-access-token');
+  mapboxgl.accessToken = accessToken;
 
   const map = new mapboxgl.Map({
     container: 'map',
@@ -16,7 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
   map.on('load', function () {
     // what other souces can i get?
     SOURCES.forEach((source) => {
-      map.addSource(source.id, source.data);
+      if (source.type && source.type === 'vector') {
+        map.addSource(source.id, {
+          type: source.type,
+          url: source.url
+        });
+      } else {
+        map.addSource(source.id, source.data);
+      }
     });
 
     LAYERS.forEach((layer) => {
@@ -28,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (checkbox) {
         checkbox.addEventListener('change', (e) => toggleLayer(map, layer.id, e));
       }
-
 
       // 4. click events on POI's
       addMouseInteractions(map, layer.id);
@@ -65,6 +72,7 @@ const addMouseInteractions = (map, layerId) => {
 }
 
 const addClickPopup = (map, layerId) => {
+  console.log('bing')
   map.on('click', layerId, (e) => {
     var features = map.queryRenderedFeatures(e.point, {
       layers: [layerId]
@@ -78,9 +86,18 @@ const addClickPopup = (map, layerId) => {
   
     // Perform actions with the feature, e.g., display a popup
     // how to style popup?
-    var popup = new mapboxgl.Popup()
+    var popup = new mapboxgl.Popup({
+      closeButton: true,
+      closeOnClick: true,
+      className: 'custom-popup',
+      maxWidth: '368px'
+    })
       .setLngLat(feature.geometry.coordinates)
-      .setText('You clicked on ' + feature.properties.name) // Assuming 'name' is a property of the feature
+      .setHTML(`
+        <div class="popup-content">
+          <h3 class="text-lg font-medium">${feature.properties.name || 'Unnamed Location'}</h3>
+        </div>
+      `)
       .addTo(map);
     });
 }

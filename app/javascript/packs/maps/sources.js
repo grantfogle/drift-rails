@@ -94,5 +94,11 @@ export const SOURCES = [
                 }
             ]}
         }
-    }
+    },
+    {
+      id: 'co-public-private-land-source',
+      type: 'vector',
+      url: 'mapbox://grantjfogle.07s4hwl6',
+      // promoteId: 'id'  // Optional: if you want to use feature IDs
+  }
 ]
