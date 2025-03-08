@@ -3,6 +3,7 @@
   id='map'
   style='height: 100%; width: 100%;'
   data-mapbox-access-token="<%= ENV["MAPBOX_ACCESS_TOKEN"] %>">
+  # TODO: find a better way to pass access token to mapbox
 
   <div id="tools-overlay" class="absolute top-0 left-0 mx-4 my-2 z-10">
     <%= render 'maps/components/search', locals: {flows: @flows } %>
