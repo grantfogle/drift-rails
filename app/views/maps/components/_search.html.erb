@@ -1,11 +1,11 @@
-<%= form_with(url: streams_path, method: "get", local: true, html: { autocomplete: "off" }) do |form| %>
+<%= form_with(html: { autocomplete: "off" }) do |form| %>
     <div class="relative">
         <%= form.text_field :query,
             value: params[:query],
             data: { reflex: "input->MapReflex#search" },
             placeholder: "Search",
-            class: "w-[368px] text-lg pl-8 pr-2 py-2 border-2 border-gray-200 rounded-lg bg-gray-50 focus:outline-none"
-            %>
+            class: "w-[368px] pl-8 pr-2 py-2 border-2 border-gray-200 rounded-lg bg-gray-50 focus:outline-none"
+        %>
         <i class="fa-solid fa-search text-lg absolute left-2 top-1/2 transform -translate-y-1/2"></i>
     </div>
 <% end %>

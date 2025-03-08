@@ -1,0 +1,19 @@
+.popup-content {
+    padding: 1.6px 2.4px;
+}
+
+.mapboxgl-popup-close-button {
+    font-size: 20px;
+    padding: 4px 8px;
+    right: 4px;
+    top: 4px;
+    color: #667;
+    font-weight: bold;
+  }
+  
+  /* Add hover effect */
+  .mapboxgl-popup-close-button:hover {
+    color: #333;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }

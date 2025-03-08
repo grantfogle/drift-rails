@@ -16,6 +16,7 @@
         <h2 class="font-bold">Map Layers</h2>
         <label for="layers-toggle" class="hover:text-blue-500 hover:cursor-pointer"><i class="fa-solid fa-xmark"></i></label>
     </div>
+
     <!--
     <p class="text-xl flex align-center justify-between mb-2">Boat Ramps
         <label class="switch">
@@ -29,12 +30,7 @@
             <span class="slider round"></span>
         </label>
     </p>
-    <p class="text-xl flex align-center justify-between mb-2">Public/Private Land
-        <label class="switch">
-            <input checked type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </p>
+    
     <p class="text-xl flex align-center justify-between">Easements
         <label class="switch">
             <input checked type="checkbox">
@@ -42,10 +38,19 @@
         </label>
     </p>
     -->
+
+    <p class="text-xl flex align-center justify-between mb-2">
+        <span><i class="fa-solid fa-land"></i> Public/Private Land</span>
+        <label class="switch">
+            <input checked type="checkbox" id="toggle-co-public-private-land-layer">
+            <span class="slider round"></span>
+        </label>
+    </p>
+
     <p class="text-xl flex align-center justify-between mb-2">
         <span><i class="fa-solid fa-shop"></i> Fly Shops</span>
         <label class="switch">
-            <input checked type="checkbox" id="toggle-fly-shop">
+            <input checked type="checkbox" id="toggle-fly-shop-layer">
             <span class="slider round"></span>
         </label>
     </p>
